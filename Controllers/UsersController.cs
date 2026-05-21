@@ -10,7 +10,7 @@ namespace Inventaire.Controllers
 
         public IActionResult Index()
         {
-            var check = CheckAccess(IsViewer());
+            var check = CheckAccess(CanViewUsers());
             if (check != null) return check;
             SetUserViewBag();
             return View();

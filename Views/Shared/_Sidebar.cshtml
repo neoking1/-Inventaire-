@@ -1,0 +1,88 @@
+<aside class="sidebar">
+    <div class="sidebar-brand">
+        <div class="brand-logo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7.5L12 3l9 4.5-9 4.5zM3 7.5V16.5L12 21l9-4.5V7.5" /></svg></div>
+        <div><h2>StockManager</h2><p>Gestion de Stock</p></div>
+    </div>
+    <nav class="sidebar-nav">
+        <a class="sidebar-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Home" ? "is-active" : "")" href="/Home/Index">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10.5L12 4l8 6.5V20a1 1 0 0 1-1 1h-5v-6H10v6H5a1 1 0 0 1-1-1z" /></svg>
+            <span>Dashboard</span>
+        </a>
+
+        <a class="sidebar-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Produit" ? "is-active" : "")" href="/Produit/Index">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7.5L12 3l9 4.5-9 4.5zM3 7.5V16.5L12 21l9-4.5V7.5" /></svg>
+            <span>Produits</span>
+        </a>
+
+        <a class="sidebar-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Stock" ? "is-active" : "")" href="/Stock/Index">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8l8-4 8 4-8 4zM4 12l8 4 8-4M4 16l8 4 8-4" /></svg>
+            <span>Stock</span>
+        </a>
+
+        <a class="sidebar-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Categories" ? "is-active" : "")" href="/Categories/Index">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12l9-9h8v8l-9 9H3zM16 8h.01" /></svg>
+            <span>Catalogues</span>
+        </a>
+
+        @if (ViewBag.CanViewEntrees == true)
+        {
+            <a class="sidebar-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Entrees" ? "is-active" : "")" href="/Entrees/Index">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v13M7 8l5-5 5 5M5 21h14" /></svg>
+                <span>Entrées</span>
+            </a>
+        }
+
+        @if (ViewBag.CanViewSorties == true)
+        {
+            <a class="sidebar-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Sorties" ? "is-active" : "")" href="/Sorties/Index">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21V8M7 13l5 5 5-5M5 3h14" /></svg>
+                <span>Sorties</span>
+            </a>
+        }
+
+        @if (ViewBag.CanViewFournisseurs == true)
+        {
+            <a class="sidebar-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Fournisseurs" ? "is-active" : "")" href="/Fournisseurs/Index">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h12v9H3zM15 9h4l2 2v4h-6M7 18a2 2 0 1 0 0 .01M18 18a2 2 0 1 0 0 .01" /></svg>
+                <span>Fournisseurs</span>
+            </a>
+            <a class="sidebar-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Origin" ? "is-active" : "")" href="/Origin/Index">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zm0 0v18M3 12h18" /></svg>
+                <span>Origine</span>
+            </a>
+            <a class="sidebar-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Localite" ? "is-active" : "")" href="/Localite/Index">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-5.3 7-11a7 7 0 1 0-14 0c0 5.7 7 11 7 11zM12 13a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" /></svg>
+                <span>Localité</span>
+            </a>
+        }
+
+        @if (ViewBag.CanViewPersonnes == true)
+        {
+            <a class="sidebar-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "personne" ? "is-active" : "")" href="/personne/Index">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 12a4.5 4.5 0 1 0-4.5-4.5A4.5 4.5 0 0 0 12 12zM4 21a8 8 0 0 1 16 0" /></svg>
+                <span>Personnes</span>
+            </a>
+        }
+
+        @if (ViewBag.CanViewUsers == true)
+        {
+            <a class="sidebar-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Users" ? "is-active" : "")" href="/Users/Index">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 11a4 4 0 1 0-4-4 4 4 0 0 0 4 4zM8 13a3 3 0 1 0-3-3 3 3 0 0 0 3 3zM3 20a5 5 0 0 1 10 0M13 20a6 6 0 0 1 8 0" /></svg>
+                <span>Users</span>
+            </a>
+        }
+
+        @if (ViewBag.CanViewReports == true)
+        {
+            <a class="sidebar-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Reports" ? "is-active" : "")" href="/Reports/Index">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z" /></svg>
+                <span>Reports</span>
+            </a>
+        }
+
+        <a class="sidebar-link is-logout" href="/Auth/Logout">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 17l5-5-5-5M20 12H9M12 4H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h7" /></svg>
+            <span>Déconnexion</span>
+        </a>
+    </nav>
+</aside>
