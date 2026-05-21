@@ -1,0 +1,76 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap"
+          rel="stylesheet" />
+    <link rel="stylesheet" href="~/css/styles.css" />
+</head>
+<body class="auth-page">
+    <main class="auth-shell">
+        <section class="auth-card">
+            <div class="auth-brand">
+                <div class="brand-icon">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M4 11V7a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v4M5 17v2m14-2v2M5 11h14v6a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1z" />
+                    </svg>
+                </div>
+                <div class="auth-brand-text">
+                    
+                </div>
+            </div>
+
+            <header class="auth-header">
+                <h1>Welcome Back</h1>
+                <p>Sign in to continue to your dashboard.</p>
+            </header>
+
+            <form class="auth-form" action="/Auth/Login" method="post">
+                <label class="input-group">
+                    <span>Login</span>
+                    <input type="text" name="login" placeholder="Enter your login" required />
+                </label>
+
+                <label class="input-group">
+                    <span>Password</span>
+                    <input type="password" name="mdp" placeholder="Enter your password" required />
+                </label>
+
+                <div class="auth-row">
+                    <label class="checkbox-wrap">
+                        <input type="checkbox" name="remember" />
+                        Remember me
+                    </label>
+                    <a href="/Auth/Register">Create account</a>
+                </div>
+
+                <button class="auth-submit" type="submit">Sign In</button>
+            </form>
+
+            <p class="auth-switch">
+                New here?
+                <a href="/Auth/Register">Register now</a>
+            </p>
+        </section>
+
+        <aside class="auth-side">
+            <h2>Inventory Control</h2>
+            <p>
+                Track products, entrees, sorties, and stock updates in one place with your current database structure.
+            </p>
+            <ul>
+                <li>Manage produits and categories</li>
+                <li>Record entrees and sorties</li>
+                <li>Link users with personne and localite</li>
+            </ul>
+        </aside>
+    </main>
+</body>
+</html>

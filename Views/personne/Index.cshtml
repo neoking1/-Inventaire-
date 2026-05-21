@@ -1,0 +1,76 @@
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>StockManager - Personnes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="~/css/styles.css" />
+  </head>
+  <body>
+    <div class="app-layout"><aside class="sidebar"><div class="sidebar-brand"><div class="brand-logo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7.5L12 3l9 4.5-9 4.5zM3 7.5V16.5L12 21l9-4.5V7.5" /></svg></div><div><h2>StockManager</h2><p>Gestion de Stock</p></div></div><nav class="sidebar-nav"><a class="sidebar-link  " href="/Home/Index"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10.5L12 4l8 6.5V20a1 1 0 0 1-1 1h-5v-6H10v6H5a1 1 0 0 1-1-1z" /></svg><span>Dashboard</span></a><a class="sidebar-link  " href="/Produit/Index"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7.5L12 3l9 4.5-9 4.5zM3 7.5V16.5L12 21l9-4.5V7.5" /></svg><span>Produits</span></a><a class="sidebar-link  " href="/Entrees/Index"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v13M7 8l5-5 5 5M5 21h14" /></svg><span>Entrées</span></a><a class="sidebar-link  " href="/Sorties/Index"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21V8M7 13l5 5 5-5M5 3h14" /></svg><span>Sorties</span></a><a class="sidebar-link  " href="/Stock/Index"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8l8-4 8 4-8 4zM4 12l8 4 8-4M4 16l8 4 8-4" /></svg><span>Stock</span></a><a class="sidebar-link  " href="/Categories/Index"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12l9-9h8v8l-9 9H3zM16 8h.01" /></svg><span>Catégories</span></a><a class="sidebar-link  " href="/Fournisseurs/Index"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h12v9H3zM15 9h4l2 2v4h-6M7 18a2 2 0 1 0 0 .01M18 18a2 2 0 1 0 0 .01" /></svg><span>Fournisseurs</span></a><a class="sidebar-link  " href="/Origin/Index"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zm0 0v18M3 12h18" /></svg><span>Origine</span></a><a class="sidebar-link  " href="/Localite/Index"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-5.3 7-11a7 7 0 1 0-14 0c0 5.7 7 11 7 11zM12 13a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" /></svg><span>Localité</span></a><a class="sidebar-link  " href="/Users/Index"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 11a4 4 0 1 0-4-4 4 4 0 0 0 4 4zM8 13a3 3 0 1 0-3-3 3 3 0 0 0 3 3zM3 20a5 5 0 0 1 10 0M13 20a6 6 0 0 1 8 0" /></svg><span>Users</span></a><a class="sidebar-link is-active " href="/personne/Index"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 12a4.5 4.5 0 1 0-4.5-4.5A4.5 4.5 0 0 0 12 12zM4 21a8 8 0 0 1 16 0" /></svg><span>Personnes</span></a><a class="sidebar-link  is-logout" href="/Auth/Logout"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 17l5-5-5-5M20 12H9M12 4H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h7" /></svg><span>Déconnexion</span></a></nav></aside><div class="main-content">
+    <header class="topbar">
+      <div class="topbar-left">
+        <button class="menu-button" type="button" aria-label="Menu"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16" /></svg></button>
+        <div class="topbar-title-group">
+          <h1>Personnes</h1>
+          <p>Contacts liés aux opérations stock</p>
+        </div>
+      </div>
+      <div class="topbar-right">
+        <label class="search-input"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 4a7 7 0 1 0 4.9 12l4.1 4.1 1.4-1.4-4.1-4.1A7 7 0 0 0 11 4z" /></svg><input type="text" placeholder="Rechercher un produit, catégorie, fournisseur..." /></label>
+        <button class="notif-button" type="button" aria-label="Notifications"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a5 5 0 0 0-5 5v3.8L5 15v1h14v-1l-2-3.2V8a5 5 0 0 0-5-5zM10 19a2 2 0 0 0 4 0" /></svg><span>3</span></button>
+        <button class="profile-chip" type="button">
+          <span class="avatar">AD</span>
+          <span class="profile-text"><strong>Admin</strong><small>Administrateur</small></span>
+        </button>
+      </div>
+    </header>
+    <main class="page-content"><section class="page-shell"><div class="page-actions"><button class="action-button primary"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14" /></svg><span>Ajouter une personne</span></button></div><section class="stats-grid"><article class="stat-card"><p>Total Personnes</p><strong>6</strong><small>Contacts</small></article><article class="stat-card"><p>Localités liées</p><strong>5</strong><small>Sites</small></article><article class="stat-card"><p>Utilisateurs liés</p><strong>6</strong><small>Comptes</small></article><article class="stat-card"><p>Contacts vérifiés</p><strong>5</strong><small>Vérifiés</small></article></section><section class="entity-grid"><div class="entity-left"><section class="filter-bar"><label class="search-input"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 4a7 7 0 1 0 4.9 12l4.1 4.1 1.4-1.4-4.1-4.1A7 7 0 0 0 11 4z" /></svg><input type="text" placeholder="Rechercher une personne..." /></label><label><span>Localité</span><select><option>Toutes</option><option>Entrepôt Central</option><option>Dépôt Nord</option><option>Dépôt Sud</option><option>Showroom Rabat</option><option>Showroom Casablanca</option></select></label><label><span>Statut contact</span><select><option>Tous</option><option>Vérifié</option><option>Non vérifié</option></select></label><label><span>Utilisateur lié</span><select><option>Tous</option><option>admin</option><option>operateur1</option><option>magasinier</option><option>achat</option><option>vente</option><option>stock</option></select></label><button class="action-button secondary"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4v6h6M20 20v-6h-6M20 10a8 8 0 0 0-14-4M4 14a8 8 0 0 0 14 4" /></svg><span>Réinitialiser</span></button></section><section class="card"><div class="table-wrapper"><table class="data-table"><thead><tr><th>ID</th><th>Nom</th><th>Prénom</th><th>Téléphone</th><th>CIN</th><th>Localité ID</th><th>Localité</th><th>Contact vérifié</th><th>Actions</th></tr></thead><tbody><tr data-select-row data-page="personnes" data-index="0" data-row-id="PRS-001" class="selected"><td>PRS-001</td><td>Dupont</td><td>Jean</td><td>+212 6 01 02 03 04</td><td>AB12345</td><td>LOC-001</td><td>Entrepôt Central</td><td>Vérifié</td><td><button class="row-action">⋮</button></td></tr><tr data-select-row data-page="personnes" data-index="1" data-row-id="PRS-002" class=""><td>PRS-002</td><td>Martin</td><td>Claire</td><td>+212 6 11 22 33 44</td><td>CD98765</td><td>LOC-004</td><td>Showroom Rabat</td><td>Vérifié</td><td><button class="row-action">⋮</button></td></tr><tr data-select-row data-page="personnes" data-index="2" data-row-id="PRS-003" class=""><td>PRS-003</td><td>Bernard</td><td>Paul</td><td>+212 6 55 44 33 22</td><td>EF45678</td><td>LOC-003</td><td>Dépôt Sud</td><td>Vérifié</td><td><button class="row-action">⋮</button></td></tr><tr data-select-row data-page="personnes" data-index="3" data-row-id="PRS-004" class=""><td>PRS-004</td><td>Lefèvre</td><td>Sophie</td><td>+212 6 74 55 11 82</td><td>GH76124</td><td>LOC-002</td><td>Dépôt Nord</td><td>Non vérifié</td><td><button class="row-action">⋮</button></td></tr><tr data-select-row data-page="personnes" data-index="4" data-row-id="PRS-005" class=""><td>PRS-005</td><td>El Amrani</td><td>Youssef</td><td>+212 6 64 88 11 03</td><td>IJ44019</td><td>LOC-005</td><td>Showroom Casablanca</td><td>Vérifié</td><td><button class="row-action">⋮</button></td></tr><tr data-select-row data-page="personnes" data-index="5" data-row-id="PRS-006" class=""><td>PRS-006</td><td>Benali</td><td>Salma</td><td>+212 6 62 90 17 30</td><td>KL22008</td><td>LOC-001</td><td>Entrepôt Central</td><td>Vérifié</td><td><button class="row-action">⋮</button></td></tr></tbody></table></div>
+    <div class="pagination-row">
+      <p>Affichage de 1 à 6 sur 6 personnes</p>
+      <div class="pagination-controls">
+        <button>«</button><button>‹</button><button class="active">1</button><button>2</button><button>3</button><button>4</button><button>5</button><span>…</span><button>16</button><button>›</button><button>»</button>
+      </div>
+    </div>
+    </section></div><aside class="detail-panel"><h3>Détails personne</h3><ul><li><span>ID Personne</span><strong>PRS-001</strong></li><li><span>Nom</span><strong>Dupont</strong></li><li><span>Prénom</span><strong>Jean</strong></li><li><span>Téléphone</span><strong>+212 6 01 02 03 04</strong></li><li><span>CIN</span><strong>AB12345</strong></li><li><span>Localité ID</span><strong>LOC-001</strong></li><li><span>Localité</span><strong>Entrepôt Central</strong></li><li><span>Utilisateur lié</span><strong>admin</strong></li><li><span>Statut contact</span><strong>Vérifié</strong></li><li><span>Date d&#039;ajout</span><strong>03/01/2026</strong></li><li><span>Dernière mise à jour</span><strong>18/05/2026</strong></li></ul><button class="action-button primary full"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17.2V21h3.8l11-11-3.8-3.8-11 11zM14.8 6.2l3.8 3.8" /></svg><span>Modifier la personne</span></button></aside></section></section></main></div></div>
+    
+  
+<script>
+  (function() {
+    const PAGE_ROWS = [{"personne_id": "PRS-001", "nom": "Dupont", "prenom": "Jean", "n_tel": "+212 6 01 02 03 04", "cin": "AB12345", "localite_id": "LOC-001", "localite": "Entrep\u00f4t Central", "contact": "V\u00e9rifi\u00e9", "user": "admin", "date_ajout": "03/01/2026", "maj": "18/05/2026"}, {"personne_id": "PRS-002", "nom": "Martin", "prenom": "Claire", "n_tel": "+212 6 11 22 33 44", "cin": "CD98765", "localite_id": "LOC-004", "localite": "Showroom Rabat", "contact": "V\u00e9rifi\u00e9", "user": "operateur1", "date_ajout": "11/01/2026", "maj": "17/05/2026"}, {"personne_id": "PRS-003", "nom": "Bernard", "prenom": "Paul", "n_tel": "+212 6 55 44 33 22", "cin": "EF45678", "localite_id": "LOC-003", "localite": "D\u00e9p\u00f4t Sud", "contact": "V\u00e9rifi\u00e9", "user": "magasinier", "date_ajout": "14/01/2026", "maj": "17/05/2026"}, {"personne_id": "PRS-004", "nom": "Lef\u00e8vre", "prenom": "Sophie", "n_tel": "+212 6 74 55 11 82", "cin": "GH76124", "localite_id": "LOC-002", "localite": "D\u00e9p\u00f4t Nord", "contact": "Non v\u00e9rifi\u00e9", "user": "achat", "date_ajout": "20/01/2026", "maj": "15/05/2026"}, {"personne_id": "PRS-005", "nom": "El Amrani", "prenom": "Youssef", "n_tel": "+212 6 64 88 11 03", "cin": "IJ44019", "localite_id": "LOC-005", "localite": "Showroom Casablanca", "contact": "V\u00e9rifi\u00e9", "user": "vente", "date_ajout": "02/02/2026", "maj": "18/05/2026"}, {"personne_id": "PRS-006", "nom": "Benali", "prenom": "Salma", "n_tel": "+212 6 62 90 17 30", "cin": "KL22008", "localite_id": "LOC-001", "localite": "Entrep\u00f4t Central", "contact": "V\u00e9rifi\u00e9", "user": "stock", "date_ajout": "10/02/2026", "maj": "16/05/2026"}];
+    const DETAIL_FIELDS = [{"label": "ID Personne", "key": "personne_id"}, {"label": "Nom", "key": "nom"}, {"label": "Pr\u00e9nom", "key": "prenom"}, {"label": "T\u00e9l\u00e9phone", "key": "n_tel"}, {"label": "CIN", "key": "cin"}, {"label": "Localit\u00e9 ID", "key": "localite_id"}, {"label": "Localit\u00e9", "key": "localite"}, {"label": "Utilisateur li\u00e9", "key": "user"}, {"label": "Statut contact", "key": "contact"}, {"label": "Date d'ajout", "key": "date_ajout"}, {"label": "Derni\u00e8re mise \u00e0 jour", "key": "maj"}];
+
+    const rows = document.querySelectorAll("[data-select-row]");
+    const detailPanel = document.querySelector(".detail-panel");
+
+    function updateDetail(index) {
+      const record = PAGE_ROWS[index];
+      if (!record) return;
+      
+      rows.forEach(r => r.classList.remove("selected"));
+      rows[index].classList.add("selected");
+
+      const list = detailPanel.querySelector("ul");
+      list.innerHTML = DETAIL_FIELDS.map(f => `<li><span>${f.label}</span><strong>${record[f.key] || "-"}</strong></li>`).join("");
+      
+      const descDiv = detailPanel.querySelector(".detail-description p");
+      if (descDiv) {
+        descDiv.textContent = record.description || record.remarque || "";
+      }
+    }
+
+    rows.forEach((row, i) => {
+      row.addEventListener("click", () => updateDetail(i));
+    });
+  })();
+</script>
+
+  </body>
+</html>
+

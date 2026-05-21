@@ -1,0 +1,76 @@
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>StockManager - Fournisseurs</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="~/css/styles.css" />
+  </head>
+  <body>
+    <div class="app-layout"><aside class="sidebar"><div class="sidebar-brand"><div class="brand-logo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7.5L12 3l9 4.5-9 4.5zM3 7.5V16.5L12 21l9-4.5V7.5" /></svg></div><div><h2>StockManager</h2><p>Gestion de Stock</p></div></div><nav class="sidebar-nav"><a class="sidebar-link  " href="/Home/Index"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10.5L12 4l8 6.5V20a1 1 0 0 1-1 1h-5v-6H10v6H5a1 1 0 0 1-1-1z" /></svg><span>Dashboard</span></a><a class="sidebar-link  " href="/Produit/Index"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7.5L12 3l9 4.5-9 4.5zM3 7.5V16.5L12 21l9-4.5V7.5" /></svg><span>Produits</span></a><a class="sidebar-link  " href="/Entrees/Index"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v13M7 8l5-5 5 5M5 21h14" /></svg><span>Entrées</span></a><a class="sidebar-link  " href="/Sorties/Index"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21V8M7 13l5 5 5-5M5 3h14" /></svg><span>Sorties</span></a><a class="sidebar-link  " href="/Stock/Index"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8l8-4 8 4-8 4zM4 12l8 4 8-4M4 16l8 4 8-4" /></svg><span>Stock</span></a><a class="sidebar-link  " href="/Categories/Index"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12l9-9h8v8l-9 9H3zM16 8h.01" /></svg><span>Catégories</span></a><a class="sidebar-link is-active " href="/Fournisseurs/Index"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h12v9H3zM15 9h4l2 2v4h-6M7 18a2 2 0 1 0 0 .01M18 18a2 2 0 1 0 0 .01" /></svg><span>Fournisseurs</span></a><a class="sidebar-link  " href="/Origin/Index"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zm0 0v18M3 12h18" /></svg><span>Origine</span></a><a class="sidebar-link  " href="/Localite/Index"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-5.3 7-11a7 7 0 1 0-14 0c0 5.7 7 11 7 11zM12 13a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" /></svg><span>Localité</span></a><a class="sidebar-link  " href="/Users/Index"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 11a4 4 0 1 0-4-4 4 4 0 0 0 4 4zM8 13a3 3 0 1 0-3-3 3 3 0 0 0 3 3zM3 20a5 5 0 0 1 10 0M13 20a6 6 0 0 1 8 0" /></svg><span>Users</span></a><a class="sidebar-link  " href="/personne/Index"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 12a4.5 4.5 0 1 0-4.5-4.5A4.5 4.5 0 0 0 12 12zM4 21a8 8 0 0 1 16 0" /></svg><span>Personnes</span></a><a class="sidebar-link  is-logout" href="/Auth/Logout"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 17l5-5-5-5M20 12H9M12 4H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h7" /></svg><span>Déconnexion</span></a></nav></aside><div class="main-content">
+    <header class="topbar">
+      <div class="topbar-left">
+        <button class="menu-button" type="button" aria-label="Menu"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16" /></svg></button>
+        <div class="topbar-title-group">
+          <h1>Fournisseurs</h1>
+          <p>Gestion des partenaires et livraisons</p>
+        </div>
+      </div>
+      <div class="topbar-right">
+        <label class="search-input"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 4a7 7 0 1 0 4.9 12l4.1 4.1 1.4-1.4-4.1-4.1A7 7 0 0 0 11 4z" /></svg><input type="text" placeholder="Rechercher un produit, catégorie, fournisseur..." /></label>
+        <button class="notif-button" type="button" aria-label="Notifications"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a5 5 0 0 0-5 5v3.8L5 15v1h14v-1l-2-3.2V8a5 5 0 0 0-5-5zM10 19a2 2 0 0 0 4 0" /></svg><span>3</span></button>
+        <button class="profile-chip" type="button">
+          <span class="avatar">AD</span>
+          <span class="profile-text"><strong>Admin</strong><small>Administrateur</small></span>
+        </button>
+      </div>
+    </header>
+    <main class="page-content"><section class="page-shell"><div class="page-actions"><button class="action-button primary"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14" /></svg><span>Ajouter fournisseur</span></button></div><section class="stats-grid"><article class="stat-card"><p>Total fournisseurs</p><strong>5</strong><small>Partenaires</small></article><article class="stat-card"><p>Fournisseurs actifs</p><strong>4</strong><small>Actifs</small></article><article class="stat-card"><p>Villes couvertes</p><strong>5</strong><small>Réseau</small></article><article class="stat-card"><p>Dernières livraisons</p><strong>17</strong><small>30 jours</small></article></section><section class="entity-grid"><div class="entity-left"><section class="filter-bar"><label class="search-input"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 4a7 7 0 1 0 4.9 12l4.1 4.1 1.4-1.4-4.1-4.1A7 7 0 0 0 11 4z" /></svg><input type="text" placeholder="Rechercher un fournisseur..." /></label><label><span>Ville</span><select><option>Toutes</option><option>Casablanca</option><option>Rabat</option><option>Marrakech</option><option>Agadir</option><option>Fès</option></select></label><label><span>Statut</span><select><option>Tous</option><option>Actif</option><option>Inactif</option></select></label><button class="action-button secondary"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4v6h6M20 20v-6h-6M20 10a8 8 0 0 0-14-4M4 14a8 8 0 0 0 14 4" /></svg><span>Réinitialiser</span></button></section><section class="card"><div class="table-wrapper"><table class="data-table"><thead><tr><th>ID</th><th>Raison sociale</th><th>Contact</th><th>Fax</th><th>Email</th><th>Adresse</th><th>Ville</th><th>Remarque</th><th>Statut</th><th>Actions</th></tr></thead><tbody><tr data-select-row data-page="fournisseurs" data-index="0" data-row-id="FRN-001" class="selected"><td>FRN-001</td><td>Mobilier Design SARL</td><td>+212 6 12 34 56 78</td><td>+212 5 22 11 22 33</td><td>contact@mobilierdesign.ma</td><td>12 Rue Atlas</td><td>Casablanca</td><td>Livraisons hebdomadaires</td><td><span class="status-badge is-success">Actif</span></td><td><button class="row-action">⋮</button></td></tr><tr data-select-row data-page="fournisseurs" data-index="1" data-row-id="FRN-002" class=""><td>FRN-002</td><td>Alliances Bois</td><td>+212 6 67 45 90 12</td><td>+212 5 37 88 44 10</td><td>sales@alliancesbois.ma</td><td>Zone Industrielle 4</td><td>Rabat</td><td>Paiement 30 jours</td><td><span class="status-badge is-success">Actif</span></td><td><button class="row-action">⋮</button></td></tr><tr data-select-row data-page="fournisseurs" data-index="2" data-row-id="FRN-003" class=""><td>FRN-003</td><td>Office Plus</td><td>+212 6 01 98 77 54</td><td>+212 5 24 33 12 09</td><td>support@officeplus.ma</td><td>Bd Hassan II</td><td>Marrakech</td><td>Stock rapide</td><td><span class="status-badge is-success">Actif</span></td><td><button class="row-action">⋮</button></td></tr><tr data-select-row data-page="fournisseurs" data-index="3" data-row-id="FRN-004" class=""><td>FRN-004</td><td>Sud Bureau</td><td>+212 6 87 20 14 55</td><td>+212 5 28 98 11 42</td><td>contact@sudbureau.ma</td><td>Parc Logistique A2</td><td>Agadir</td><td>Délais variables</td><td><span class="status-badge is-success">Inactif</span></td><td><button class="row-action">⋮</button></td></tr><tr data-select-row data-page="fournisseurs" data-index="4" data-row-id="FRN-005" class=""><td>FRN-005</td><td>Bois &amp; Créations</td><td>+212 6 55 22 33 44</td><td>+212 5 24 76 82 11</td><td>pro@boiscreations.ma</td><td>Av. Mohammed V</td><td>Fès</td><td>Qualité premium</td><td><span class="status-badge is-success">Actif</span></td><td><button class="row-action">⋮</button></td></tr></tbody></table></div>
+    <div class="pagination-row">
+      <p>Affichage de 1 à 5 sur 5 fournisseurs</p>
+      <div class="pagination-controls">
+        <button>«</button><button>‹</button><button class="active">1</button><button>2</button><button>3</button><button>4</button><button>5</button><span>…</span><button>16</button><button>›</button><button>»</button>
+      </div>
+    </div>
+    </section></div><aside class="detail-panel"><h3>Détails fournisseur</h3><ul><li><span>ID</span><strong>FRN-001</strong></li><li><span>Raison sociale</span><strong>Mobilier Design SARL</strong></li><li><span>Contact</span><strong>+212 6 12 34 56 78</strong></li><li><span>Fax</span><strong>+212 5 22 11 22 33</strong></li><li><span>Email</span><strong>contact@mobilierdesign.ma</strong></li><li><span>Adresse</span><strong>12 Rue Atlas</strong></li><li><span>Ville</span><strong>Casablanca</strong></li><li><span>Remarque</span><strong>Livraisons hebdomadaires</strong></li><li><span>Produits fournis</span><strong>34</strong></li><li><span>Dernière livraison</span><strong>16/05/2026</strong></li></ul><button class="action-button primary full"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17.2V21h3.8l11-11-3.8-3.8-11 11zM14.8 6.2l3.8 3.8" /></svg><span>Modifier le fournisseur</span></button></aside></section></section></main></div></div>
+    
+  
+<script>
+  (function() {
+    const PAGE_ROWS = [{"fournisseur_id": "FRN-001", "raison_social": "Mobilier Design SARL", "contact": "+212 6 12 34 56 78", "fax": "+212 5 22 11 22 33", "email": "contact@mobilierdesign.ma", "adress": "12 Rue Atlas", "ville": "Casablanca", "remarque": "Livraisons hebdomadaires", "statut": "Actif", "produits_fournis": 34, "derniere_livraison": "16/05/2026"}, {"fournisseur_id": "FRN-002", "raison_social": "Alliances Bois", "contact": "+212 6 67 45 90 12", "fax": "+212 5 37 88 44 10", "email": "sales@alliancesbois.ma", "adress": "Zone Industrielle 4", "ville": "Rabat", "remarque": "Paiement 30 jours", "statut": "Actif", "produits_fournis": 21, "derniere_livraison": "14/05/2026"}, {"fournisseur_id": "FRN-003", "raison_social": "Office Plus", "contact": "+212 6 01 98 77 54", "fax": "+212 5 24 33 12 09", "email": "support@officeplus.ma", "adress": "Bd Hassan II", "ville": "Marrakech", "remarque": "Stock rapide", "statut": "Actif", "produits_fournis": 18, "derniere_livraison": "12/05/2026"}, {"fournisseur_id": "FRN-004", "raison_social": "Sud Bureau", "contact": "+212 6 87 20 14 55", "fax": "+212 5 28 98 11 42", "email": "contact@sudbureau.ma", "adress": "Parc Logistique A2", "ville": "Agadir", "remarque": "D\u00e9lais variables", "statut": "Inactif", "produits_fournis": 9, "derniere_livraison": "03/05/2026"}, {"fournisseur_id": "FRN-005", "raison_social": "Bois & Cr\u00e9ations", "contact": "+212 6 55 22 33 44", "fax": "+212 5 24 76 82 11", "email": "pro@boiscreations.ma", "adress": "Av. Mohammed V", "ville": "F\u00e8s", "remarque": "Qualit\u00e9 premium", "statut": "Actif", "produits_fournis": 27, "derniere_livraison": "17/05/2026"}];
+    const DETAIL_FIELDS = [{"label": "ID", "key": "fournisseur_id"}, {"label": "Raison sociale", "key": "raison_social"}, {"label": "Contact", "key": "contact"}, {"label": "Fax", "key": "fax"}, {"label": "Email", "key": "email"}, {"label": "Adresse", "key": "adress"}, {"label": "Ville", "key": "ville"}, {"label": "Remarque", "key": "remarque"}, {"label": "Produits fournis", "key": "produits_fournis"}, {"label": "Derni\u00e8re livraison", "key": "derniere_livraison"}];
+
+    const rows = document.querySelectorAll("[data-select-row]");
+    const detailPanel = document.querySelector(".detail-panel");
+
+    function updateDetail(index) {
+      const record = PAGE_ROWS[index];
+      if (!record) return;
+      
+      rows.forEach(r => r.classList.remove("selected"));
+      rows[index].classList.add("selected");
+
+      const list = detailPanel.querySelector("ul");
+      list.innerHTML = DETAIL_FIELDS.map(f => `<li><span>${f.label}</span><strong>${record[f.key] || "-"}</strong></li>`).join("");
+      
+      const descDiv = detailPanel.querySelector(".detail-description p");
+      if (descDiv) {
+        descDiv.textContent = record.description || record.remarque || "";
+      }
+    }
+
+    rows.forEach((row, i) => {
+      row.addEventListener("click", () => updateDetail(i));
+    });
+  })();
+</script>
+
+  </body>
+</html>
+

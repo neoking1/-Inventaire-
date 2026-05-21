@@ -1,0 +1,76 @@
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>StockManager - Users</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="~/css/styles.css" />
+  </head>
+  <body>
+    <div class="app-layout"><aside class="sidebar"><div class="sidebar-brand"><div class="brand-logo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7.5L12 3l9 4.5-9 4.5zM3 7.5V16.5L12 21l9-4.5V7.5" /></svg></div><div><h2>StockManager</h2><p>Gestion de Stock</p></div></div><nav class="sidebar-nav"><a class="sidebar-link  " href="/Home/Index"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10.5L12 4l8 6.5V20a1 1 0 0 1-1 1h-5v-6H10v6H5a1 1 0 0 1-1-1z" /></svg><span>Dashboard</span></a><a class="sidebar-link  " href="/Produit/Index"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7.5L12 3l9 4.5-9 4.5zM3 7.5V16.5L12 21l9-4.5V7.5" /></svg><span>Produits</span></a><a class="sidebar-link  " href="/Entrees/Index"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v13M7 8l5-5 5 5M5 21h14" /></svg><span>Entrées</span></a><a class="sidebar-link  " href="/Sorties/Index"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21V8M7 13l5 5 5-5M5 3h14" /></svg><span>Sorties</span></a><a class="sidebar-link  " href="/Stock/Index"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8l8-4 8 4-8 4zM4 12l8 4 8-4M4 16l8 4 8-4" /></svg><span>Stock</span></a><a class="sidebar-link  " href="/Categories/Index"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12l9-9h8v8l-9 9H3zM16 8h.01" /></svg><span>Catégories</span></a><a class="sidebar-link  " href="/Fournisseurs/Index"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h12v9H3zM15 9h4l2 2v4h-6M7 18a2 2 0 1 0 0 .01M18 18a2 2 0 1 0 0 .01" /></svg><span>Fournisseurs</span></a><a class="sidebar-link  " href="/Origin/Index"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zm0 0v18M3 12h18" /></svg><span>Origine</span></a><a class="sidebar-link  " href="/Localite/Index"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-5.3 7-11a7 7 0 1 0-14 0c0 5.7 7 11 7 11zM12 13a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" /></svg><span>Localité</span></a><a class="sidebar-link is-active " href="/Users/Index"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 11a4 4 0 1 0-4-4 4 4 0 0 0 4 4zM8 13a3 3 0 1 0-3-3 3 3 0 0 0 3 3zM3 20a5 5 0 0 1 10 0M13 20a6 6 0 0 1 8 0" /></svg><span>Users</span></a><a class="sidebar-link  " href="/personne/Index"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 12a4.5 4.5 0 1 0-4.5-4.5A4.5 4.5 0 0 0 12 12zM4 21a8 8 0 0 1 16 0" /></svg><span>Personnes</span></a><a class="sidebar-link  is-logout" href="/Auth/Logout"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 17l5-5-5-5M20 12H9M12 4H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h7" /></svg><span>Déconnexion</span></a></nav></aside><div class="main-content">
+    <header class="topbar">
+      <div class="topbar-left">
+        <button class="menu-button" type="button" aria-label="Menu"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16" /></svg></button>
+        <div class="topbar-title-group">
+          <h1>Users</h1>
+          <p>Comptes et accès de l&#039;application</p>
+        </div>
+      </div>
+      <div class="topbar-right">
+        <label class="search-input"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 4a7 7 0 1 0 4.9 12l4.1 4.1 1.4-1.4-4.1-4.1A7 7 0 0 0 11 4z" /></svg><input type="text" placeholder="Rechercher un produit, catégorie, fournisseur..." /></label>
+        <button class="notif-button" type="button" aria-label="Notifications"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a5 5 0 0 0-5 5v3.8L5 15v1h14v-1l-2-3.2V8a5 5 0 0 0-5-5zM10 19a2 2 0 0 0 4 0" /></svg><span>3</span></button>
+        <button class="profile-chip" type="button">
+          <span class="avatar">AD</span>
+          <span class="profile-text"><strong>Admin</strong><small>Administrateur</small></span>
+        </button>
+      </div>
+    </header>
+    <main class="page-content"><section class="page-shell"><div class="page-actions"><button class="action-button primary"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14" /></svg><span>Ajouter un utilisateur</span></button></div><section class="stats-grid"><article class="stat-card"><p>Total utilisateurs</p><strong>6</strong><small>Comptes</small></article><article class="stat-card"><p>Administrateurs</p><strong>1</strong><small>Admin</small></article><article class="stat-card"><p>Opérateurs</p><strong>3</strong><small>Rôles</small></article><article class="stat-card"><p>Derniers accès</p><strong>6</strong><small>Actifs</small></article></section><section class="entity-grid"><div class="entity-left"><section class="filter-bar"><label class="search-input"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 4a7 7 0 1 0 4.9 12l4.1 4.1 1.4-1.4-4.1-4.1A7 7 0 0 0 11 4z" /></svg><input type="text" placeholder="Rechercher un utilisateur..." /></label><label><span>Type</span><select><option>Tous</option><option>Administrateur</option><option>Opérateur</option><option>Magasinier</option></select></label><label><span>Statut</span><select><option>Tous</option><option>Actif</option><option>Inactif</option></select></label><label><span>Dernier accès</span><select><option>Aujourd&#039;hui</option><option>Hier</option><option>7 derniers jours</option></select></label><button class="action-button secondary"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4v6h6M20 20v-6h-6M20 10a8 8 0 0 0-14-4M4 14a8 8 0 0 0 14 4" /></svg><span>Réinitialiser</span></button></section><section class="card"><div class="table-wrapper"><table class="data-table"><thead><tr><th>ID</th><th>Login</th><th>Mot de passe</th><th>Type</th><th>Personne ID</th><th>Personne</th><th>Dernier accès</th><th>Actions</th></tr></thead><tbody><tr data-select-row data-page="users" data-index="0" data-row-id="USR-001" class="selected"><td>USR-001</td><td>admin</td><td>••••••••</td><td>Administrateur</td><td>PRS-001</td><td>Jean Dupont</td><td>Aujourd&#039;hui 10:42</td><td><button class="row-action">⋮</button></td></tr><tr data-select-row data-page="users" data-index="1" data-row-id="USR-002" class=""><td>USR-002</td><td>operateur1</td><td>••••••••</td><td>Opérateur</td><td>PRS-002</td><td>Claire Martin</td><td>Aujourd&#039;hui 09:21</td><td><button class="row-action">⋮</button></td></tr><tr data-select-row data-page="users" data-index="2" data-row-id="USR-003" class=""><td>USR-003</td><td>magasinier</td><td>••••••••</td><td>Magasinier</td><td>PRS-003</td><td>Paul Bernard</td><td>Hier 17:03</td><td><button class="row-action">⋮</button></td></tr><tr data-select-row data-page="users" data-index="3" data-row-id="USR-004" class=""><td>USR-004</td><td>achat</td><td>••••••••</td><td>Opérateur</td><td>PRS-004</td><td>Sophie Lefèvre</td><td>Hier 15:50</td><td><button class="row-action">⋮</button></td></tr><tr data-select-row data-page="users" data-index="4" data-row-id="USR-005" class=""><td>USR-005</td><td>vente</td><td>••••••••</td><td>Opérateur</td><td>PRS-005</td><td>Youssef El Amrani</td><td>Hier 14:04</td><td><button class="row-action">⋮</button></td></tr><tr data-select-row data-page="users" data-index="5" data-row-id="USR-006" class=""><td>USR-006</td><td>stock</td><td>••••••••</td><td>Magasinier</td><td>PRS-006</td><td>Salma Benali</td><td>12/05/2026 11:13</td><td><button class="row-action">⋮</button></td></tr></tbody></table></div>
+    <div class="pagination-row">
+      <p>Affichage de 1 à 6 sur 6 utilisateurs</p>
+      <div class="pagination-controls">
+        <button>«</button><button>‹</button><button class="active">1</button><button>2</button><button>3</button><button>4</button><button>5</button><span>…</span><button>16</button><button>›</button><button>»</button>
+      </div>
+    </div>
+    </section></div><aside class="detail-panel"><h3>Détails utilisateur</h3><ul><li><span>ID utilisateur</span><strong>USR-001</strong></li><li><span>Login</span><strong>admin</strong></li><li><span>Mot de passe</span><strong>••••••••</strong></li><li><span>Type</span><strong>Administrateur</strong></li><li><span>Personne ID</span><strong>PRS-001</strong></li><li><span>Nom complet</span><strong>Jean Dupont</strong></li><li><span>Email</span><strong>jean.dupont@stockmanager.ma</strong></li><li><span>Téléphone</span><strong>+212 6 01 02 03 04</strong></li><li><span>Dernier accès</span><strong>Aujourd&#039;hui 10:42</strong></li><li><span>Statut du compte</span><strong>Actif</strong></li></ul><button class="action-button primary full"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17.2V21h3.8l11-11-3.8-3.8-11 11zM14.8 6.2l3.8 3.8" /></svg><span>Modifier le profil</span></button></aside></section></section></main></div></div>
+    
+  
+<script>
+  (function() {
+    const PAGE_ROWS = [{"id": "USR-001", "login": "admin", "mdp": "\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022", "type": "Administrateur", "personne_id": "PRS-001", "personne": "Jean Dupont", "dernier_acces": "Aujourd'hui 10:42", "statut": "Actif", "email": "jean.dupont@stockmanager.ma", "tel": "+212 6 01 02 03 04"}, {"id": "USR-002", "login": "operateur1", "mdp": "\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022", "type": "Op\u00e9rateur", "personne_id": "PRS-002", "personne": "Claire Martin", "dernier_acces": "Aujourd'hui 09:21", "statut": "Actif", "email": "claire.martin@stockmanager.ma", "tel": "+212 6 11 22 33 44"}, {"id": "USR-003", "login": "magasinier", "mdp": "\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022", "type": "Magasinier", "personne_id": "PRS-003", "personne": "Paul Bernard", "dernier_acces": "Hier 17:03", "statut": "Actif", "email": "paul.bernard@stockmanager.ma", "tel": "+212 6 55 44 33 22"}, {"id": "USR-004", "login": "achat", "mdp": "\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022", "type": "Op\u00e9rateur", "personne_id": "PRS-004", "personne": "Sophie Lef\u00e8vre", "dernier_acces": "Hier 15:50", "statut": "Inactif", "email": "sophie.lefevre@stockmanager.ma", "tel": "+212 6 74 55 11 82"}, {"id": "USR-005", "login": "vente", "mdp": "\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022", "type": "Op\u00e9rateur", "personne_id": "PRS-005", "personne": "Youssef El Amrani", "dernier_acces": "Hier 14:04", "statut": "Actif", "email": "youssef.elamrani@stockmanager.ma", "tel": "+212 6 64 88 11 03"}, {"id": "USR-006", "login": "stock", "mdp": "\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022", "type": "Magasinier", "personne_id": "PRS-006", "personne": "Salma Benali", "dernier_acces": "12/05/2026 11:13", "statut": "Actif", "email": "salma.benali@stockmanager.ma", "tel": "+212 6 62 90 17 30"}];
+    const DETAIL_FIELDS = [{"label": "ID utilisateur", "key": "id"}, {"label": "Login", "key": "login"}, {"label": "Mot de passe", "key": "mdp"}, {"label": "Type", "key": "type"}, {"label": "Personne ID", "key": "personne_id"}, {"label": "Nom complet", "key": "personne"}, {"label": "Email", "key": "email"}, {"label": "T\u00e9l\u00e9phone", "key": "tel"}, {"label": "Dernier acc\u00e8s", "key": "dernier_acces"}, {"label": "Statut du compte", "key": "statut"}];
+
+    const rows = document.querySelectorAll("[data-select-row]");
+    const detailPanel = document.querySelector(".detail-panel");
+
+    function updateDetail(index) {
+      const record = PAGE_ROWS[index];
+      if (!record) return;
+      
+      rows.forEach(r => r.classList.remove("selected"));
+      rows[index].classList.add("selected");
+
+      const list = detailPanel.querySelector("ul");
+      list.innerHTML = DETAIL_FIELDS.map(f => `<li><span>${f.label}</span><strong>${record[f.key] || "-"}</strong></li>`).join("");
+      
+      const descDiv = detailPanel.querySelector(".detail-description p");
+      if (descDiv) {
+        descDiv.textContent = record.description || record.remarque || "";
+      }
+    }
+
+    rows.forEach((row, i) => {
+      row.addEventListener("click", () => updateDetail(i));
+    });
+  })();
+</script>
+
+  </body>
+</html>
+

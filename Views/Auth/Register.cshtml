@@ -1,0 +1,104 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Broadway Furniture - Register</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap"
+          rel="stylesheet" />
+    <link rel="stylesheet" href="~/css/styles.css" />
+</head>
+<body class="auth-page">
+    <main class="auth-shell">
+        <section class="auth-card">
+            <div class="auth-brand">
+                <div class="brand-icon">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M4 11V7a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v4M5 17v2m14-2v2M5 11h14v6a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1z" />
+                    </svg>
+                </div>
+                <div class="auth-brand-text">
+                    <strong>Broadway</strong>
+                    <span>Furniture</span>
+                </div>
+            </div>
+
+            <header class="auth-header">
+                <h1>Create Account</h1>
+                <p>Register a new user linked to personne and localite.</p>
+            </header>
+
+            <form class="auth-form auth-form-grid" action="login.html" method="get">
+                <label class="input-group">
+                    <span>Nom</span>
+                    <input type="text" name="nom" placeholder="Last name" required />
+                </label>
+
+                <label class="input-group">
+                    <span>Prenom</span>
+                    <input type="text" name="prenom" placeholder="First name" required />
+                </label>
+
+                <label class="input-group">
+                    <span>n_tel</span>
+                    <input type="tel" name="n_tel" placeholder="+212 ..." required />
+                </label>
+
+                <label class="input-group">
+                    <span>CIN</span>
+                    <input type="text" name="cin" placeholder="CIN value" required />
+                </label>
+
+                <label class="input-group">
+                    <span>Email</span>
+                    <input type="email" name="email" placeholder="name@example.com" required />
+                </label>
+
+                <label class="input-group">
+                    <span>Localite</span>
+                    <input type="text" name="localite" placeholder="Localite id or title" required />
+                </label>
+
+                <label class="input-group">
+                    <span>Login</span>
+                    <input type="text" name="login" placeholder="Choose a login" required />
+                </label>
+
+                <label class="input-group">
+                    <span>Password</span>
+                    <input type="password" name="mdp" placeholder="Create password" required />
+                </label>
+
+                <label class="input-group auth-full">
+                    <span>Confirm Password</span>
+                    <input type="password" name="confirm_mdp" placeholder="Confirm password" required />
+                </label>
+
+                <button class="auth-submit auth-full" type="submit">Create Account</button>
+            </form>
+
+            <p class="auth-switch">
+                Already have an account?
+                <a href="/Auth/Login">Sign in</a>
+            </p>
+        </section>
+
+        <aside class="auth-side">
+            <h2>Database Friendly</h2>
+            <p>
+                This register form mirrors your schema naming so your frontend labels stay aligned with tables and columns.
+            </p>
+            <ul>
+                <li>Person details: nom, prenom, n_tel, cin</li>
+                <li>User account fields: login, mdp, type</li>
+                <li>Location context: localite relation</li>
+            </ul>
+        </aside>
+    </main>
+</body>
+</html>

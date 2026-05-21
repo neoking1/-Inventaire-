@@ -1,0 +1,76 @@
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>StockManager - Origine</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="~/css/styles.css" />
+  </head>
+  <body>
+    <div class="app-layout"><aside class="sidebar"><div class="sidebar-brand"><div class="brand-logo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7.5L12 3l9 4.5-9 4.5zM3 7.5V16.5L12 21l9-4.5V7.5" /></svg></div><div><h2>StockManager</h2><p>Gestion de Stock</p></div></div><nav class="sidebar-nav"><a class="sidebar-link  " href="/Home/Index"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10.5L12 4l8 6.5V20a1 1 0 0 1-1 1h-5v-6H10v6H5a1 1 0 0 1-1-1z" /></svg><span>Dashboard</span></a><a class="sidebar-link  " href="/Produit/Index"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7.5L12 3l9 4.5-9 4.5zM3 7.5V16.5L12 21l9-4.5V7.5" /></svg><span>Produits</span></a><a class="sidebar-link  " href="/Entrees/Index"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v13M7 8l5-5 5 5M5 21h14" /></svg><span>Entrées</span></a><a class="sidebar-link  " href="/Sorties/Index"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21V8M7 13l5 5 5-5M5 3h14" /></svg><span>Sorties</span></a><a class="sidebar-link  " href="/Stock/Index"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8l8-4 8 4-8 4zM4 12l8 4 8-4M4 16l8 4 8-4" /></svg><span>Stock</span></a><a class="sidebar-link  " href="/Categories/Index"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12l9-9h8v8l-9 9H3zM16 8h.01" /></svg><span>Catégories</span></a><a class="sidebar-link  " href="/Fournisseurs/Index"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h12v9H3zM15 9h4l2 2v4h-6M7 18a2 2 0 1 0 0 .01M18 18a2 2 0 1 0 0 .01" /></svg><span>Fournisseurs</span></a><a class="sidebar-link is-active " href="/Origin/Index"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zm0 0v18M3 12h18" /></svg><span>Origine</span></a><a class="sidebar-link  " href="/Localite/Index"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-5.3 7-11a7 7 0 1 0-14 0c0 5.7 7 11 7 11zM12 13a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" /></svg><span>Localité</span></a><a class="sidebar-link  " href="/Users/Index"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 11a4 4 0 1 0-4-4 4 4 0 0 0 4 4zM8 13a3 3 0 1 0-3-3 3 3 0 0 0 3 3zM3 20a5 5 0 0 1 10 0M13 20a6 6 0 0 1 8 0" /></svg><span>Users</span></a><a class="sidebar-link  " href="/personne/Index"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 12a4.5 4.5 0 1 0-4.5-4.5A4.5 4.5 0 0 0 12 12zM4 21a8 8 0 0 1 16 0" /></svg><span>Personnes</span></a><a class="sidebar-link  is-logout" href="/Auth/Logout"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 17l5-5-5-5M20 12H9M12 4H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h7" /></svg><span>Déconnexion</span></a></nav></aside><div class="main-content">
+    <header class="topbar">
+      <div class="topbar-left">
+        <button class="menu-button" type="button" aria-label="Menu"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16" /></svg></button>
+        <div class="topbar-title-group">
+          <h1>Origine</h1>
+          <p>Référentiel des provenances produits</p>
+        </div>
+      </div>
+      <div class="topbar-right">
+        <label class="search-input"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 4a7 7 0 1 0 4.9 12l4.1 4.1 1.4-1.4-4.1-4.1A7 7 0 0 0 11 4z" /></svg><input type="text" placeholder="Rechercher un produit, catégorie, fournisseur..." /></label>
+        <button class="notif-button" type="button" aria-label="Notifications"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a5 5 0 0 0-5 5v3.8L5 15v1h14v-1l-2-3.2V8a5 5 0 0 0-5-5zM10 19a2 2 0 0 0 4 0" /></svg><span>3</span></button>
+        <button class="profile-chip" type="button">
+          <span class="avatar">AD</span>
+          <span class="profile-text"><strong>Admin</strong><small>Administrateur</small></span>
+        </button>
+      </div>
+    </header>
+    <main class="page-content"><section class="page-shell"><div class="page-actions"><button class="action-button primary"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14" /></svg><span>Ajouter une origine</span></button></div><section class="stats-grid"><article class="stat-card"><p>Total Origines</p><strong>4</strong><small>Pays</small></article><article class="stat-card"><p>Produits locaux</p><strong>46</strong><small>Maroc</small></article><article class="stat-card"><p>Produits importés</p><strong>110</strong><small>Import</small></article><article class="stat-card"><p>Mises à jour</p><strong>4</strong><small>Cette semaine</small></article></section><section class="entity-grid"><div class="entity-left"><section class="filter-bar"><label class="search-input"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 4a7 7 0 1 0 4.9 12l4.1 4.1 1.4-1.4-4.1-4.1A7 7 0 0 0 11 4z" /></svg><input type="text" placeholder="Rechercher une origine..." /></label><label><span>Type</span><select><option>Tous</option><option>Maroc</option><option>France</option><option>Allemagne</option><option>Italie</option></select></label><label><span>Statut</span><select><option>Tous</option><option>Actif</option><option>Inactif</option></select></label><button class="action-button secondary"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4v6h6M20 20v-6h-6M20 10a8 8 0 0 0-14-4M4 14a8 8 0 0 0 14 4" /></svg><span>Réinitialiser</span></button></section><section class="card"><div class="table-wrapper"><table class="data-table"><thead><tr><th>ID</th><th>Type</th><th>Produits associés</th><th>Dernière mise à jour</th><th>Statut</th><th>Actions</th></tr></thead><tbody><tr data-select-row data-page="origine" data-index="0" data-row-id="ORG-001" class="selected"><td>ORG-001</td><td>Maroc</td><td>46</td><td>18/05/2026</td><td><span class="status-badge is-success">Actif</span></td><td><button class="row-action">⋮</button></td></tr><tr data-select-row data-page="origine" data-index="1" data-row-id="ORG-002" class=""><td>ORG-002</td><td>France</td><td>34</td><td>17/05/2026</td><td><span class="status-badge is-success">Actif</span></td><td><button class="row-action">⋮</button></td></tr><tr data-select-row data-page="origine" data-index="2" data-row-id="ORG-003" class=""><td>ORG-003</td><td>Allemagne</td><td>39</td><td>16/05/2026</td><td><span class="status-badge is-success">Actif</span></td><td><button class="row-action">⋮</button></td></tr><tr data-select-row data-page="origine" data-index="3" data-row-id="ORG-004" class=""><td>ORG-004</td><td>Italie</td><td>37</td><td>15/05/2026</td><td><span class="status-badge is-success">Actif</span></td><td><button class="row-action">⋮</button></td></tr></tbody></table></div>
+    <div class="pagination-row">
+      <p>Affichage de 1 à 4 sur 4 origines</p>
+      <div class="pagination-controls">
+        <button>«</button><button>‹</button><button class="active">1</button><button>2</button><button>3</button><button>4</button><button>5</button><span>…</span><button>16</button><button>›</button><button>»</button>
+      </div>
+    </div>
+    </section></div><aside class="detail-panel"><h3>Détails origine</h3><ul><li><span>ID</span><strong>ORG-001</strong></li><li><span>Type</span><strong>Maroc</strong></li><li><span>Statut</span><strong>Actif</strong></li><li><span>Produits associés</span><strong>46</strong></li><li><span>Dernière mise à jour</span><strong>18/05/2026</strong></li></ul><div class="detail-description"><h4>Description</h4><p>Origine utilisée pour le suivi import/local et l&#039;analyse de stock.</p></div><button class="action-button primary full"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17.2V21h3.8l11-11-3.8-3.8-11 11zM14.8 6.2l3.8 3.8" /></svg><span>Voir tous les produits</span></button></aside></section></section></main></div></div>
+    
+  
+<script>
+  (function() {
+    const PAGE_ROWS = [{"id": "ORG-001", "type": "Maroc", "produits": 46, "maj": "18/05/2026", "statut": "Actif"}, {"id": "ORG-002", "type": "France", "produits": 34, "maj": "17/05/2026", "statut": "Actif"}, {"id": "ORG-003", "type": "Allemagne", "produits": 39, "maj": "16/05/2026", "statut": "Actif"}, {"id": "ORG-004", "type": "Italie", "produits": 37, "maj": "15/05/2026", "statut": "Actif"}];
+    const DETAIL_FIELDS = [{"label": "ID", "key": "id"}, {"label": "Type", "key": "type"}, {"label": "Statut", "key": "statut"}, {"label": "Produits associ\u00e9s", "key": "produits"}, {"label": "Derni\u00e8re mise \u00e0 jour", "key": "maj"}];
+
+    const rows = document.querySelectorAll("[data-select-row]");
+    const detailPanel = document.querySelector(".detail-panel");
+
+    function updateDetail(index) {
+      const record = PAGE_ROWS[index];
+      if (!record) return;
+      
+      rows.forEach(r => r.classList.remove("selected"));
+      rows[index].classList.add("selected");
+
+      const list = detailPanel.querySelector("ul");
+      list.innerHTML = DETAIL_FIELDS.map(f => `<li><span>${f.label}</span><strong>${record[f.key] || "-"}</strong></li>`).join("");
+      
+      const descDiv = detailPanel.querySelector(".detail-description p");
+      if (descDiv) {
+        descDiv.textContent = record.description || record.remarque || "";
+      }
+    }
+
+    rows.forEach((row, i) => {
+      row.addEventListener("click", () => updateDetail(i));
+    });
+  })();
+</script>
+
+  </body>
+</html>
+
