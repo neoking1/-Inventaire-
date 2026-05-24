@@ -1,5 +1,8 @@
+﻿@model System.Data.DataTable
 @{
     Layout = null;
+    int totalCats = ViewBag.TotalCategories ?? 0;
+    int totalProd = ViewBag.TotalProduits ?? 0;
 }
 <!DOCTYPE html>
 <html lang="fr">
@@ -13,56 +16,193 @@
     <link rel="stylesheet" href="~/css/styles.css" />
 </head>
 <body>
-    <div class="app-layout">
-        @await Html.PartialAsync("_Sidebar")
-        <div class="main-content">
-            @await Html.PartialAsync("_Topbar", "Catalogues")
-            <main class="page-content">
-                <section class="page-shell">
-                    <div class="page-actions"><button class="action-button primary"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14" /></svg><span>Ajouter catégorie</span></button></div><section class="stats-grid"><article class="stat-card"><p>Total Catégories</p><strong>12</strong><small>Références</small></article><article class="stat-card"><p>Produits associés</p><strong>156</strong><small>Catalogue</small></article><article class="stat-card"><p>Catégories actives</p><strong>10</strong><small>Actives</small></article><article class="stat-card"><p>Ajouts récents</p><strong>2</strong><small>Ce mois</small></article></section><section class="entity-grid">
-                    <div class="entity-left">
-                        <section class="filter-bar"><label class="search-input"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 4a7 7 0 1 0 4.9 12l4.1 4.1 1.4-1.4-4.1-4.1A7 7 0 0 0 11 4z" /></svg><input type="text" placeholder="Rechercher une catégorie..." /></label><label><span>Statut</span><select><option>Tous</option><option>Actif</option><option>Inactif</option></select></label><button class="action-button secondary"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4v6h6M20 20v-6h-6M20 10a8 8 0 0 0-14-4M4 14a8 8 0 0 0 14 4" /></svg><span>Réinitialiser</span></button></section><section class="card">
-                        <div class="table-wrapper"><table class="data-table"><thead><tr><th>ID</th><th>Nom catégorie</th><th>Produits associés</th><th>Statut</th><th>Actions</th></tr></thead><tbody><tr data-select-row data-page="categories" data-index="0" data-row-id="CAT-001" class="selected"><td>CAT-001</td><td>Mobilier</td><td>28</td><td><span class="status-badge is-success">Actif</span></td><td><button class="row-action">⋮</button></td></tr><tr data-select-row data-page="categories" data-index="1" data-row-id="CAT-002" class=""><td>CAT-002</td><td>Tables</td><td>22</td><td><span class="status-badge is-success">Actif</span></td><td><button class="row-action">⋮</button></td></tr><tr data-select-row data-page="categories" data-index="2" data-row-id="CAT-003" class=""><td>CAT-003</td><td>Rangement</td><td>34</td><td><span class="status-badge is-success">Actif</span></td><td><button class="row-action">⋮</button></td></tr><tr data-select-row data-page="categories" data-index="3" data-row-id="CAT-004" class=""><td>CAT-004</td><td>Éclairage</td><td>16</td><td><span class="status-badge is-success">Actif</span></td><td><button class="row-action">⋮</button></td></tr><tr data-select-row data-page="categories" data-index="4" data-row-id="CAT-005" class=""><td>CAT-005</td><td>Canapés</td><td>12</td><td><span class="status-badge is-success">Actif</span></td><td><button class="row-action">⋮</button></td></tr><tr data-select-row data-page="categories" data-index="5" data-row-id="CAT-006" class=""><td>CAT-006</td><td>Accessoires</td><td>44</td><td><span class="status-badge is-success">Inactif</span></td><td><button class="row-action">⋮</button></td></tr></tbody></table></div>
-                        <div class="pagination-row">
-                            <p>Affichage de 1 à 6 sur 12 catégories</p>
-                            <div class="pagination-controls">
-                                <button>«</button><button>‹</button><button class="active">1</button><button>2</button><button>3</button><button>4</button><button>5</button><span>…</span><button>16</button><button>›</button><button>»</button>
-                            </div>
-                        </div>
-                    </section>
-                </div><aside class="detail-panel"><h3>Détails catégorie</h3><ul><li><span>ID</span><strong>CAT-001</strong></li><li><span>Nom</span><strong>Mobilier</strong></li><li><span>Statut</span><strong>Actif</strong></li><li><span>Produits associés</span><strong>28</strong></li></ul><div class="detail-description"><h4>Description</h4><p>Catégorie liée au catalogue principal avec suivi d&#039;activité.</p></div><button class="action-button primary full"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17.2V21h3.8l11-11-3.8-3.8-11 11zM14.8 6.2l3.8 3.8" /></svg><span>Voir tous les produits</span></button></aside>
+<div class="app-layout">
+    @await Html.PartialAsync("_Sidebar")
+    <div class="main-content">
+        @await Html.PartialAsync("_Topbar", "Catalogues")
+        <main class="page-content">
+          <section class="page-shell page-shell-entity">
+
+            <div class="page-actions">
+              @if (ViewBag.CanEdit == true) {
+                <button class="action-button primary" onclick="openModal()">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+                  <span>Ajouter catégorie</span>
+                </button>
+              }
+            </div>
+
+            <section class="stats-grid">
+              <article class="stat-card"><p>Total Catégories</p><strong>@totalCats</strong><small>Références</small></article>
+              <article class="stat-card"><p>Produits associés</p><strong>@totalProd</strong><small>Catalogue</small></article>
             </section>
-        </section>
-    </main>
+
+            <section class="entity-grid">
+              <div class="entity-left">
+                <section class="filter-bar">
+                  <label class="search-input">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 4a7 7 0 1 0 4.9 12l4.1 4.1 1.4-1.4-4.1-4.1A7 7 0 0 0 11 4z"/></svg>
+                    <input type="text" id="searchInput" placeholder="Rechercher une catégorie..." oninput="filterTable()" />
+                  </label>
+                  <button class="action-button secondary" onclick="filterTable(true)">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4v6h6M20 20v-6h-6M20 10a8 8 0 0 0-14-4M4 14a8 8 0 0 0 14 4"/></svg>
+                    <span>Réinitialiser</span>
+                  </button>
+                </section>
+
+                <section class="card">
+                  <div class="table-wrapper">
+                    <table class="data-table has-actions" id="mainTable">
+                      <thead><tr><th>ID</th><th>Nom catégorie</th><th>Produits associés</th><th>Actions</th></tr></thead>
+                      <tbody>
+                        @if (Model != null) {
+                          int i = 0;
+                          foreach (System.Data.DataRow row in Model.Rows) {
+                            <tr data-index="@i" class="@(i==0?"selected":"")" onclick="selectRow(this,@i)">
+                              <td>@row["id"]</td>
+                              <td>@row["nom_categorie"]</td>
+                              <td>@row["nb_produits"]</td>
+                              <td>
+                                <div class="row-menu-wrap">
+                                  <button class="row-action" onclick="toggleMenu(event,this)">⋮</button>
+                                  <div class="row-menu">
+                                    @if (ViewBag.CanEdit == true) {
+                                      <button onclick="openEditModalByIndex(@i)">
+                                        <svg viewBox="0 0 24 24"><path d="M3 17.2V21h3.8l11-11-3.8-3.8-11 11z"/></svg>Modifier
+                                      </button>
+                                      <button class="is-danger" onclick="confirmDelete(@row["id"])">
+                                        <svg viewBox="0 0 24 24"><path d="M3 6h18M8 6V4h8v2M19 6l-1 14H6L5 6"/></svg>Supprimer
+                                      </button>
+                                    }
+                                  </div>
+                                </div>
+                              </td>
+                            </tr>
+                            i++;
+                          }
+                        }
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="pagination-row"><p id="paginationInfo"></p></div>
+                </section>
+              </div>
+
+              <aside class="detail-panel">
+                <h3>Détails catégorie</h3>
+                <ul id="detailList"></ul>
+                @if (ViewBag.CanEdit == true) {
+                  <button class="action-button primary full" onclick="editSelected()">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17.2V21h3.8l11-11-3.8-3.8-11 11z"/></svg>
+                    <span>Modifier</span>
+                  </button>
+                }
+              </aside>
+            </section>
+          </section>
+        </main>
+    </div>
 </div>
+
+<!-- Modal Add/Edit -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModalIfBg(event)">
+  <div class="modal-box">
+    <div class="modal-header">
+      <h3 id="modalTitle">Ajouter une catégorie</h3>
+      <button class="modal-close" onclick="closeModal()">✕</button>
+    </div>
+    <div class="form-group">
+      <label>Nom de la catégorie</label>
+      <input type="text" id="f_nom" placeholder="Ex: Mobilier" />
+    </div>
+    <input type="hidden" id="f_id" />
+    <div class="modal-footer">
+      <button class="action-button secondary" onclick="closeModal()">Annuler</button>
+      <button class="action-button primary" onclick="saveCategorie()">Enregistrer</button>
+    </div>
+  </div>
 </div>
+
+<!-- Confirm Delete -->
+<div class="modal-overlay" id="confirmOverlay" onclick="closeModalIfBg(event)">
+  <div class="modal-box confirm-dialog">
+    <div class="confirm-icon"><svg viewBox="0 0 24 24"><path d="M3 6h18M8 6V4h8v2M19 6l-1 14H6L5 6"/></svg></div>
+    <h3>Supprimer la catégorie ?</h3>
+    <p>Cette action est irréversible.</p>
+    <div class="modal-footer">
+      <button class="action-button secondary" onclick="closeConfirm()">Annuler</button>
+      <button class="action-button primary" style="background:#ef4444" onclick="doDelete()">Supprimer</button>
+    </div>
+  </div>
+</div>
+<div class="toast-wrap" id="toastWrap"></div>
 
 <script>
-        (function() {
-          const PAGE_ROWS = [{"id": "CAT-001", "nom_categorie": "Mobilier", "produits": 28, "statut": "Actif"}, {"id": "CAT-002", "nom_categorie": "Tables", "produits": 22, "statut": "Actif"}, {"id": "CAT-003", "nom_categorie": "Rangement", "produits": 34, "statut": "Actif"}, {"id": "CAT-004", "nom_categorie": "\u00c9clairage", "produits": 16, "statut": "Actif"}, {"id": "CAT-005", "nom_categorie": "Canap\u00e9s", "produits": 12, "statut": "Actif"}, {"id": "CAT-006", "nom_categorie": "Accessoires", "produits": 44, "statut": "Inactif"}];
-          const DETAIL_FIELDS = [{"label": "ID", "key": "id"}, {"label": "Nom", "key": "nom_categorie"}, {"label": "Statut", "key": "statut"}, {"label": "Produits associ\u00e9s", "key": "produits"}];
+const ROWS = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(
+  (Model?.Rows.Cast<System.Data.DataRow>() ?? System.Linq.Enumerable.Empty<System.Data.DataRow>()).Select(r => new {
+    id = r["id"], nom = r["nom_categorie"].ToString(), produits = r["nb_produits"]
+  }).ToList()
+));
+let selectedIndex = 0, deleteId = null;
 
-          const rows = document.querySelectorAll("[data-select-row]");
-          const detailPanel = document.querySelector(".detail-panel");
-
-          function updateDetail(index) {
-            const record = PAGE_ROWS[index];
-            if (!record) return;
-            rows.forEach(r => r.classList.remove("selected"));
-            rows[index].classList.add("selected");
-            const list = detailPanel.querySelector("ul");
-            list.innerHTML = DETAIL_FIELDS.map(f => `<li><span>${f.label}</span><strong>${record[f.key] || "-"}</strong></li>`).join("");
-            const descDiv = detailPanel.querySelector(".detail-description p");
-            if (descDiv) {
-              descDiv.textContent = record.description || record.remarque || "";
-            }
-          }
-
-          rows.forEach((row, i) => {
-            row.addEventListener("click", () => updateDetail(i));
-          });
-        })();
+function selectRow(el, i) {
+  document.querySelectorAll('#mainTable tbody tr').forEach(r => r.classList.remove('selected'));
+  el.classList.add('selected'); selectedIndex = i; updateDetail(ROWS[i]);
+}
+function updateDetail(r) {
+  if (!r) return;
+  document.getElementById('detailList').innerHTML =
+    `<li><span>ID</span><strong>${r.id}</strong></li>
+     <li><span>Nom catégorie</span><strong>${r.nom}</strong></li>
+     <li><span>Produits associés</span><strong>${r.produits}</strong></li>`;
+}
+function filterTable(reset) {
+  if (reset) document.getElementById('searchInput').value = '';
+  const q = document.getElementById('searchInput').value.toLowerCase();
+  let n = 0;
+  document.querySelectorAll('#mainTable tbody tr').forEach(tr => {
+    const ok = tr.textContent.toLowerCase().includes(q);
+    tr.style.display = ok ? '' : 'none'; if (ok) n++;
+  });
+  document.getElementById('paginationInfo').textContent = `${n} résultat(s)`;
+}
+function toggleMenu(e, btn) {
+  e.stopPropagation();
+  const m = btn.nextElementSibling;
+  document.querySelectorAll('.row-menu.is-open').forEach(x => { if (x!==m) x.classList.remove('is-open'); });
+  m.classList.toggle('is-open');
+}
+document.addEventListener('click', () => document.querySelectorAll('.row-menu.is-open').forEach(m => m.classList.remove('is-open')));
+function openModal() { document.getElementById('modalTitle').textContent='Ajouter une catégorie'; document.getElementById('f_id').value=''; document.getElementById('f_nom').value=''; document.getElementById('modalOverlay').classList.add('is-open'); }
+function openEditModal(id, nom) { document.getElementById('modalTitle').textContent='Modifier la catégorie'; document.getElementById('f_id').value=id; document.getElementById('f_nom').value=nom; document.getElementById('modalOverlay').classList.add('is-open'); }
+function openEditModalByIndex(i) { const r = ROWS[i]; if (r) openEditModal(r.id, r.nom); }
+function editSelected() { const r=ROWS[selectedIndex]; if(r) openEditModal(r.id,r.nom); }
+function closeModal() { document.getElementById('modalOverlay').classList.remove('is-open'); }
+function closeConfirm() { document.getElementById('confirmOverlay').classList.remove('is-open'); }
+function closeModalIfBg(e) { if(e.target.classList.contains('modal-overlay')) { closeModal(); closeConfirm(); } }
+async function saveCategorie() {
+  const id=document.getElementById('f_id').value, nom=document.getElementById('f_nom').value.trim();
+  if(!nom) { showToast('Le nom est requis.','error'); return; }
+  const url=id?'/Categories/Update':'/Categories/Create';
+  const body=new URLSearchParams({nomCategorie:nom}); if(id) body.append('id',id);
+  const r=await fetch(url,{method:'POST',body}); const d=await r.json();
+  if(d.success) { showToast(d.message,'success'); closeModal(); setTimeout(()=>location.reload(),700); }
+  else showToast(d.message,'error');
+}
+function confirmDelete(id) { deleteId=id; document.getElementById('confirmOverlay').classList.add('is-open'); }
+async function doDelete() {
+  const r=await fetch('/Categories/Delete',{method:'POST',body:new URLSearchParams({id:deleteId})}); const d=await r.json();
+  closeConfirm(); if(d.success) { showToast(d.message,'success'); setTimeout(()=>location.reload(),700); } else showToast(d.message,'error');
+}
+function showToast(msg,type) {
+  const t=document.createElement('div'); t.className=`toast ${type}`; t.textContent=msg;
+  document.getElementById('toastWrap').appendChild(t); setTimeout(()=>t.remove(),3500);
+}
+if(ROWS.length>0) { updateDetail(ROWS[0]); document.getElementById('paginationInfo').textContent=`${ROWS.length} catégorie(s)`; }
 </script>
-
 </body>
 </html>
+
+
+
+

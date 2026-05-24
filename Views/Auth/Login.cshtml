@@ -32,6 +32,15 @@
                 <p>Sign in to continue to your dashboard.</p>
             </header>
 
+            @if (TempData["Success"] != null)
+            {
+                <p class="auth-alert auth-alert-success">@TempData["Success"]</p>
+            }
+            @if (ViewBag.Error != null)
+            {
+                <p class="auth-alert auth-alert-error">@ViewBag.Error</p>
+            }
+
             <form class="auth-form" action="/Auth/Login" method="post">
                 <label class="input-group">
                     <span>Login</span>

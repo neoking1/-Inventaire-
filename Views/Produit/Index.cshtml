@@ -1,61 +1,112 @@
-@{
-    Layout = null;
-}
+﻿@model System.Data.DataTable
+@{ Layout = null; }
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>StockManager - Produits</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="~/css/styles.css" />
-  </head>
-  <body>
-    <div class="app-layout">@await Html.PartialAsync("_Sidebar")<div class="main-content">
-    @await Html.PartialAsync("_Topbar", "Produits")
-    <main class="page-content"><section class="page-shell"><div class="page-actions">@if (ViewBag.CanEdit == true) { <button class="action-button primary"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14" /></svg><span>Ajouter produit</span></button> }<button class="action-button secondary"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12M8 11l4 4 4-4M5 20h14" /></svg><span>Exporter</span></button><button class="action-button secondary"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M7 12h10M10 17h4" /></svg><span>Filtres</span></button></div><section class="stats-grid"><article class="stat-card"><p>Total Produits</p><strong>156</strong><small>Produits</small></article><article class="stat-card"><p>En stock</p><strong>98</strong><small>Produits</small></article><article class="stat-card"><p>Stock faible</p><strong>27</strong><small>Produits</small></article><article class="stat-card"><p>Catégories</p><strong>12</strong><small>Catégories</small></article><article class="stat-card"><p>Fournisseurs</p><strong>5</strong><small>Actifs</small></article></section><section class="entity-grid"><div class="entity-left"><section class="filter-bar"><label class="search-input"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 4a7 7 0 1 0 4.9 12l4.1 4.1 1.4-1.4-4.1-4.1A7 7 0 0 0 11 4z" /></svg><input type="text" placeholder="Rechercher un produit..." /></label><label><span>Catégorie</span><select><option>Toutes</option><option>Mobilier</option><option>Tables</option><option>Rangement</option><option>Éclairage</option><option>Canapés</option><option>Accessoires</option></select></label><label><span>Origine</span><select><option>Toutes</option><option>Maroc</option><option>France</option><option>Allemagne</option><option>Italie</option></select></label><label><span>Fournisseur</span><select><option>Tous</option><option>Mobilier Design SARL</option><option>Alliances Bois</option><option>Office Plus</option><option>Sud Bureau</option><option>Bois &amp; Créations</option></select></label><label><span>Localité</span><select><option>Toutes</option><option>Entrepôt Central</option><option>Dépôt Nord</option><option>Dépôt Sud</option><option>Showroom Rabat</option><option>Showroom Casablanca</option></select></label><label><span>Statut stock</span><select><option>Tous</option><option>En stock</option><option>Faible</option><option>Critique</option></select></label><button class="action-button secondary"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4v6h6M20 20v-6h-6M20 10a8 8 0 0 0-14-4M4 14a8 8 0 0 0 14 4" /></svg><span>Réinitialiser</span></button></section><section class="card"><div class="table-wrapper"><table class="data-table"><thead><tr><th>ID Produit</th><th>Produit</th><th>Catégorie ID</th><th>Catégorie</th><th>Stock</th><th>Fournisseur</th><th>Origine</th><th>Localité</th><th>Prix</th><th>Statut</th><th>Actions</th></tr></thead><tbody><tr data-select-row data-page="produits" data-index="0" data-row-id="PRD-001" class="selected"><td>PRD-001</td><td><div class="cell-title"><span class="thumb chair"></span><span>Chaise de bureau Ergonomique</span></div></td><td>CAT-001</td><td>Mobilier</td><td>120</td><td>Mobilier Design SARL</td><td>France</td><td>Entrepôt Central</td><td>85,00 €</td><td><span class="status-badge is-success">En stock</span></td><td><button class="row-action">⋮</button></td></tr><tr data-select-row data-page="produits" data-index="1" data-row-id="PRD-002" class=""><td>PRD-002</td><td><div class="cell-title"><span class="thumb desk"></span><span>Bureau Direction 160x80</span></div></td><td>CAT-002</td><td>Tables</td><td>35</td><td>Alliances Bois</td><td>Maroc</td><td>Dépôt Nord</td><td>250,00 €</td><td><span class="status-badge is-warning">Faible</span></td><td><button class="row-action">⋮</button></td></tr><tr data-select-row data-page="produits" data-index="2" data-row-id="PRD-003" class=""><td>PRD-003</td><td><div class="cell-title"><span class="thumb shelf"></span><span>Étagère métallique 5 niveaux</span></div></td><td>CAT-003</td><td>Rangement</td><td>7</td><td>Office Plus</td><td>Allemagne</td><td>Dépôt Sud</td><td>160,00 €</td><td><span class="status-badge is-danger">Critique</span></td><td><button class="row-action">⋮</button></td></tr><tr data-select-row data-page="produits" data-index="3" data-row-id="PRD-004" class=""><td>PRD-004</td><td><div class="cell-title"><span class="thumb table"></span><span>Table basse bois massif</span></div></td><td>CAT-002</td><td>Tables</td><td>42</td><td>Bois &amp; Créations</td><td>Italie</td><td>Showroom Rabat</td><td>129,00 €</td><td><span class="status-badge is-success">En stock</span></td><td><button class="row-action">⋮</button></td></tr><tr data-select-row data-page="produits" data-index="4" data-row-id="PRD-005" class=""><td>PRD-005</td><td><div class="cell-title"><span class="thumb sofa"></span><span>Canapé 3 places tissu</span></div></td><td>CAT-005</td><td>Canapés</td><td>18</td><td>Sud Bureau</td><td>Maroc</td><td>Showroom Casablanca</td><td>540,00 €</td><td><span class="status-badge is-warning">Faible</span></td><td><button class="row-action">⋮</button></td></tr><tr data-select-row data-page="produits" data-index="5" data-row-id="PRD-006" class=""><td>PRD-006</td><td><div class="cell-title"><span class="thumb wardrobe"></span><span>Armoire 3 portes</span></div></td><td>CAT-003</td><td>Rangement</td><td>26</td><td>Alliances Bois</td><td>France</td><td>Entrepôt Central</td><td>310,00 €</td><td><span class="status-badge is-success">En stock</span></td><td><button class="row-action">⋮</button></td></tr><tr data-select-row data-page="produits" data-index="6" data-row-id="PRD-007" class=""><td>PRD-007</td><td><div class="cell-title"><span class="thumb bookshelf"></span><span>Bibliothèque étagère</span></div></td><td>CAT-003</td><td>Rangement</td><td>9</td><td>Office Plus</td><td>Italie</td><td>Dépôt Nord</td><td>190,00 €</td><td><span class="status-badge is-danger">Critique</span></td><td><button class="row-action">⋮</button></td></tr></tbody></table></div>
-    <div class="pagination-row">
-      <p>Affichage de 1 à 10 sur 156 produits</p>
-      <div class="pagination-controls">
-        <button>«</button><button>‹</button><button class="active">1</button><button>2</button><button>3</button><button>4</button><button>5</button><span>…</span><button>16</button><button>›</button><button>»</button>
-      </div>
-    </div>
-    </section></div><aside class="detail-panel"><h3>Détails produit</h3><ul><li><span>ID Produit</span><strong>PRD-001</strong></li><li><span>Label</span><strong>Chaise de bureau Ergonomique</strong></li><li><span>Catégorie ID</span><strong>CAT-001</strong></li><li><span>Catégorie</span><strong>Mobilier</strong></li><li><span>Stock disponible</span><strong>120</strong></li><li><span>Statut</span><strong>En stock</strong></li><li><span>Origine</span><strong>France</strong></li><li><span>Fournisseur</span><strong>Mobilier Design SARL</strong></li><li><span>Prix unitaire</span><strong>85,00 €</strong></li><li><span>Code barre</span><strong>3546897512365</strong></li><li><span>Date d&#039;ajout</span><strong>12/04/2024</strong></li></ul><div class="detail-description"><h4>Description</h4><p>Chaise ergonomique avec dossier réglable et support lombaire.</p></div>@if (ViewBag.CanEdit == true) { <button class="action-button primary full"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17.2V21h3.8l11-11-3.8-3.8-11 11zM14.8 6.2l3.8 3.8" /></svg><span>Modifier le produit</span></button> }</aside></section></section></main></div></div>
-    
-  
+<head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>StockManager - Produits</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="~/css/styles.css" /></head>
+<body><div class="app-layout">
+@await Html.PartialAsync("_Sidebar")
+<div class="main-content">@await Html.PartialAsync("_Topbar", "Produits")<main class="page-content"><section class="page-shell page-shell-produit">
+
+<div class="page-actions">
+  @if(ViewBag.CanEdit==true){<button class="action-button primary" onclick="openModal()"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg><span>Ajouter un produit</span></button>}
+</div>
+
+<section class="stats-grid">
+  <article class="stat-card"><p>Total Produits</p><strong>@(ViewBag.TotalProduits??0)</strong><small>Références</small></article>
+  <article class="stat-card"><p>Catégories</p><strong>@(ViewBag.TotalCategories??0)</strong><small>Catégories</small></article>
+</section>
+
+<section class="entity-grid produit-grid"><div class="entity-left">
+<section class="filter-bar">
+  <label class="search-input"><svg viewBox="0 0 24 24"><path d="M11 4a7 7 0 1 0 4.9 12l4.1 4.1 1.4-1.4-4.1-4.1A7 7 0 0 0 11 4z"/></svg><input type="text" id="searchInput" placeholder="Rechercher un produit..." oninput="filterTable()" /></label>
+  <label><span>Catégorie</span>
+    <select id="filterCat" onchange="filterTable()">
+      <option value="">Toutes</option>
+      @if(ViewBag.Categories!=null){foreach(System.Data.DataRow c in ((System.Data.DataTable)ViewBag.Categories).Rows){
+        <option value="@c["nom_categorie"]">@c["nom_categorie"]</option>
+      }}
+    </select>
+  </label>
+  <button class="action-button secondary" onclick="resetFilters()"><svg viewBox="0 0 24 24"><path d="M4 4v6h6M20 20v-6h-6M20 10a8 8 0 0 0-14-4M4 14a8 8 0 0 0 14 4"/></svg><span>Réinitialiser</span></button>
+</section>
+<section class="card"><div class="table-wrapper"><table class="data-table has-actions" id="mainTable">
+  <thead><tr><th>ID</th><th>Label</th><th>Catégorie</th><th>Actions</th></tr></thead>
+  <tbody>
+    @if(Model!=null){int i=0;foreach(System.Data.DataRow row in Model.Rows){
+    <tr data-index="@i" class="@(i==0?"selected":"")" onclick="selectRow(this,@i)">
+      <td>@row["produit_id"]</td><td>@row["label"]</td><td>@row["nom_categorie"]</td>
+      <td><div class="row-menu-wrap"><button class="row-action" onclick="toggleMenu(event,this)">⋮</button><div class="row-menu">
+        @if(ViewBag.CanEdit==true){
+        <button onclick="editRow(@i)"><svg viewBox="0 0 24 24"><path d="M3 17.2V21h3.8l11-11-3.8-3.8-11 11z"/></svg>Modifier</button>
+        <button class="is-danger" onclick="confirmDelete(@row["produit_id"])"><svg viewBox="0 0 24 24"><path d="M3 6h18M8 6V4h8v2M19 6l-1 14H6L5 6"/></svg>Supprimer</button>}
+      </div></div></td>
+    </tr>
+    i++;}}
+  </tbody>
+</table></div><div class="pagination-row"><p id="paginationInfo"></p></div></section>
+</div>
+<aside class="detail-panel"><h3>Détails produit</h3><ul id="detailList"></ul>
+  @if(ViewBag.CanEdit==true){<button class="action-button primary full" onclick="editRow(selectedIndex)"><svg viewBox="0 0 24 24"><path d="M3 17.2V21h3.8l11-11-3.8-3.8-11 11z"/></svg><span>Modifier</span></button>}
+</aside>
+</section>
+</section></main></div></div>
+
+<div class="modal-overlay" id="modalOverlay" onclick="closeModalIfBg(event)"><div class="modal-box">
+  <div class="modal-header"><h3 id="modalTitle">Ajouter un produit</h3><button class="modal-close" onclick="closeModal()">✕</button></div>
+  <div class="form-group"><label>Label / Désignation</label><input type="text" id="f_label" placeholder="Ex: Chaise ergonomique" /></div>
+  <div class="form-group"><label>Catégorie</label>
+    <select id="f_cat">
+      <option value="">-- Choisir --</option>
+      @if(ViewBag.Categories!=null){foreach(System.Data.DataRow c in ((System.Data.DataTable)ViewBag.Categories).Rows){
+        <option value="@c["id"]">@c["nom_categorie"]</option>
+      }}
+    </select>
+  </div>
+  <input type="hidden" id="f_id" />
+  <div class="modal-footer"><button class="action-button secondary" onclick="closeModal()">Annuler</button><button class="action-button primary" onclick="save()">Enregistrer</button></div>
+</div></div>
+
+<div class="modal-overlay" id="confirmOverlay" onclick="closeModalIfBg(event)"><div class="modal-box confirm-dialog">
+  <div class="confirm-icon"><svg viewBox="0 0 24 24"><path d="M3 6h18M8 6V4h8v2M19 6l-1 14H6L5 6"/></svg></div>
+  <h3>Supprimer ce produit ?</h3><p>Cette action est irréversible.</p>
+  <div class="modal-footer"><button class="action-button secondary" onclick="closeConfirm()">Annuler</button><button class="action-button primary" style="background:#ef4444" onclick="doDelete()">Supprimer</button></div>
+</div></div>
+<div class="toast-wrap" id="toastWrap"></div>
+
 <script>
-  (function() {
-    const PAGE_ROWS = [{"produit_id": "PRD-001", "label": "Chaise de bureau Ergonomique", "categorie_id": "CAT-001", "categorie": "Mobilier", "stock": 120, "fournisseur": "Mobilier Design SARL", "origine": "France", "localite": "Entrep\u00f4t Central", "prix": "85,00 \u20ac", "statut": "En stock", "code": "3546897512365", "date": "12/04/2024", "description": "Chaise ergonomique avec dossier r\u00e9glable et support lombaire.", "thumb": "chair"}, {"produit_id": "PRD-002", "label": "Bureau Direction 160x80", "categorie_id": "CAT-002", "categorie": "Tables", "stock": 35, "fournisseur": "Alliances Bois", "origine": "Maroc", "localite": "D\u00e9p\u00f4t Nord", "prix": "250,00 \u20ac", "statut": "Faible", "code": "3546897512366", "date": "10/04/2024", "description": "Bureau en bois massif avec finition noyer.", "thumb": "desk"}, {"produit_id": "PRD-003", "label": "\u00c9tag\u00e8re m\u00e9tallique 5 niveaux", "categorie_id": "CAT-003", "categorie": "Rangement", "stock": 7, "fournisseur": "Office Plus", "origine": "Allemagne", "localite": "D\u00e9p\u00f4t Sud", "prix": "160,00 \u20ac", "statut": "Critique", "code": "3546897512367", "date": "09/04/2024", "description": "\u00c9tag\u00e8re charge lourde, finition anti-corrosion.", "thumb": "shelf"}, {"produit_id": "PRD-004", "label": "Table basse bois massif", "categorie_id": "CAT-002", "categorie": "Tables", "stock": 42, "fournisseur": "Bois & Cr\u00e9ations", "origine": "Italie", "localite": "Showroom Rabat", "prix": "129,00 \u20ac", "statut": "En stock", "code": "3546897512368", "date": "05/04/2024", "description": "Table basse design, plateau ch\u00eane et pieds acier noir.", "thumb": "table"}, {"produit_id": "PRD-005", "label": "Canap\u00e9 3 places tissu", "categorie_id": "CAT-005", "categorie": "Canap\u00e9s", "stock": 18, "fournisseur": "Sud Bureau", "origine": "Maroc", "localite": "Showroom Casablanca", "prix": "540,00 \u20ac", "statut": "Faible", "code": "3546897512369", "date": "03/04/2024", "description": "Canap\u00e9 3 places, tissu premium coloris anthracite.", "thumb": "sofa"}, {"produit_id": "PRD-006", "label": "Armoire 3 portes", "categorie_id": "CAT-003", "categorie": "Rangement", "stock": 26, "fournisseur": "Alliances Bois", "origine": "France", "localite": "Entrep\u00f4t Central", "prix": "310,00 \u20ac", "statut": "En stock", "code": "3546897512370", "date": "01/04/2024", "description": "Armoire 3 portes avec \u00e9tag\u00e8res modulables.", "thumb": "wardrobe"}, {"produit_id": "PRD-007", "label": "Biblioth\u00e8que \u00e9tag\u00e8re", "categorie_id": "CAT-003", "categorie": "Rangement", "stock": 9, "fournisseur": "Office Plus", "origine": "Italie", "localite": "D\u00e9p\u00f4t Nord", "prix": "190,00 \u20ac", "statut": "Critique", "code": "3546897512371", "date": "31/03/2024", "description": "Biblioth\u00e8que 6 niches, structure m\u00e9tal et bois.", "thumb": "bookshelf"}];
-    const DETAIL_FIELDS = [{"label": "ID Produit", "key": "produit_id"}, {"label": "Label", "key": "label"}, {"label": "Cat\u00e9gorie ID", "key": "categorie_id"}, {"label": "Cat\u00e9gorie", "key": "categorie"}, {"label": "Stock disponible", "key": "stock"}, {"label": "Statut", "key": "statut"}, {"label": "Origine", "key": "origine"}, {"label": "Fournisseur", "key": "fournisseur"}, {"label": "Prix unitaire", "key": "prix"}, {"label": "Code barre", "key": "code"}, {"label": "Date d'ajout", "key": "date"}];
-
-    const rows = document.querySelectorAll("[data-select-row]");
-    const detailPanel = document.querySelector(".detail-panel");
-
-    function updateDetail(index) {
-      const record = PAGE_ROWS[index];
-      if (!record) return;
-      
-      rows.forEach(r => r.classList.remove("selected"));
-      rows[index].classList.add("selected");
-
-      const list = detailPanel.querySelector("ul");
-      list.innerHTML = DETAIL_FIELDS.map(f => `<li><span>${f.label}</span><strong>${record[f.key] || "-"}</strong></li>`).join("");
-      
-      const descDiv = detailPanel.querySelector(".detail-description p");
-      if (descDiv) {
-        descDiv.textContent = record.description || record.remarque || "";
-      }
-    }
-
-    rows.forEach((row, i) => {
-      row.addEventListener("click", () => updateDetail(i));
-    });
-  })();
+const ROWS=@Html.Raw(System.Text.Json.JsonSerializer.Serialize((Model?.Rows.Cast<System.Data.DataRow>() ?? System.Linq.Enumerable.Empty<System.Data.DataRow>()).Select(r=>new{
+  id=r["produit_id"],label=r["label"]?.ToString(),catId=r["categorie_id"],cat=r["nom_categorie"]?.ToString()
+}).ToList()));
+let selectedIndex=0,deleteId=null;
+function selectRow(el,i){document.querySelectorAll('#mainTable tbody tr').forEach(r=>r.classList.remove('selected'));el.classList.add('selected');selectedIndex=i;updateDetail(ROWS[i]);}
+function updateDetail(r){if(!r)return;document.getElementById('detailList').innerHTML=`<li><span>ID</span><strong>${r.id}</strong></li><li><span>Label</span><strong>${r.label||'-'}</strong></li><li><span>Catégorie</span><strong>${r.cat||'-'}</strong></li>`;}
+function filterTable(){const q=document.getElementById('searchInput').value.toLowerCase(),cat=document.getElementById('filterCat').value.toLowerCase();let n=0;document.querySelectorAll('#mainTable tbody tr').forEach(tr=>{const ok=tr.textContent.toLowerCase().includes(q)&&(!cat||tr.cells[2]?.textContent.toLowerCase()===cat);tr.style.display=ok?'':'none';if(ok)n++;});document.getElementById('paginationInfo').textContent=`${n} résultat(s)`;}
+function resetFilters(){document.getElementById('searchInput').value='';document.getElementById('filterCat').value='';filterTable();}
+function toggleMenu(e,btn){e.stopPropagation();const m=btn.nextElementSibling;document.querySelectorAll('.row-menu.is-open').forEach(x=>{if(x!==m)x.classList.remove('is-open');});m.classList.toggle('is-open');}
+document.addEventListener('click',()=>document.querySelectorAll('.row-menu.is-open').forEach(m=>m.classList.remove('is-open')));
+function openModal(){document.getElementById('modalTitle').textContent='Ajouter un produit';document.getElementById('f_id').value='';document.getElementById('f_label').value='';document.getElementById('f_cat').value='';document.getElementById('modalOverlay').classList.add('is-open');}
+function editRow(i){const r=ROWS[i];if(!r)return;document.getElementById('modalTitle').textContent='Modifier le produit';document.getElementById('f_id').value=r.id;document.getElementById('f_label').value=r.label||'';document.getElementById('f_cat').value=r.catId||'';document.getElementById('modalOverlay').classList.add('is-open');}
+function closeModal(){document.getElementById('modalOverlay').classList.remove('is-open');}
+function closeConfirm(){document.getElementById('confirmOverlay').classList.remove('is-open');}
+function closeModalIfBg(e){if(e.target.classList.contains('modal-overlay')){closeModal();closeConfirm();}}
+async function save(){
+  const id=document.getElementById('f_id').value,label=document.getElementById('f_label').value.trim(),catId=document.getElementById('f_cat').value;
+  if(!label){showToast('Le label est requis.','error');return;}
+  if(!catId){showToast('Sélectionnez une catégorie.','error');return;}
+  const body=new URLSearchParams({label,categorieId:catId});if(id)body.append('id',id);
+  const r=await fetch(id?'/Produit/Update':'/Produit/Create',{method:'POST',body});const d=await r.json();
+  if(d.success){showToast(d.message,'success');closeModal();setTimeout(()=>location.reload(),700);}else showToast(d.message,'error');
+}
+function confirmDelete(id){deleteId=id;document.getElementById('confirmOverlay').classList.add('is-open');}
+async function doDelete(){const r=await fetch('/Produit/Delete',{method:'POST',body:new URLSearchParams({id:deleteId})});const d=await r.json();closeConfirm();if(d.success){showToast(d.message,'success');setTimeout(()=>location.reload(),700);}else showToast(d.message,'error');}
+function showToast(msg,type){const t=document.createElement('div');t.className=`toast ${type}`;t.textContent=msg;document.getElementById('toastWrap').appendChild(t);setTimeout(()=>t.remove(),3500);}
+if(ROWS.length>0){updateDetail(ROWS[0]);document.getElementById('paginationInfo').textContent=`${ROWS.length} produit(s)`;}
 </script>
+</body></html>
 
-  </body>
-</html>
 
 

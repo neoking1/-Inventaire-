@@ -1,11 +1,9 @@
-@{
-    Layout = null;
-}
+﻿@model System.Data.DataTable
+@{ Layout = null; }
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>StockManager - Fournisseurs</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -13,56 +11,125 @@
     <link rel="stylesheet" href="~/css/styles.css" />
 </head>
 <body>
-    <div class="app-layout">
-        @await Html.PartialAsync("_Sidebar")
-        <div class="main-content">
-            @await Html.PartialAsync("_Topbar", "Fournisseurs")
-            <main class="page-content">
-                <section class="page-shell">
-                    <div class="page-actions">@if (ViewBag.CanEdit == true) { <button class="action-button primary"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14" /></svg><span>Ajouter fournisseur</span></button> }</div><section class="stats-grid"><article class="stat-card"><p>Total fournisseurs</p><strong>5</strong><small>Partenaires</small></article><article class="stat-card"><p>Fournisseurs actifs</p><strong>4</strong><small>Actifs</small></article><article class="stat-card"><p>Villes couvertes</p><strong>5</strong><small>Réseau</small></article><article class="stat-card"><p>Dernières livraisons</p><strong>17</strong><small>30 jours</small></article></section><section class="entity-grid">
-                    <div class="entity-left">
-                        <section class="filter-bar"><label class="search-input"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 4a7 7 0 1 0 4.9 12l4.1 4.1 1.4-1.4-4.1-4.1A7 7 0 0 0 11 4z" /></svg><input type="text" placeholder="Rechercher un fournisseur..." /></label><label><span>Ville</span><select><option>Toutes</option><option>Casablanca</option><option>Rabat</option><option>Marrakech</option><option>Agadir</option><option>Fès</option></select></label><label><span>Statut</span><select><option>Tous</option><option>Actif</option><option>Inactif</option></select></label><button class="action-button secondary"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4v6h6M20 20v-6h-6M20 10a8 8 0 0 0-14-4M4 14a8 8 0 0 0 14 4" /></svg><span>Réinitialiser</span></button></section><section class="card">
-                        <div class="table-wrapper"><table class="data-table"><thead><tr><th>ID</th><th>Raison sociale</th><th>Contact</th><th>Fax</th><th>Email</th><th>Adresse</th><th>Ville</th><th>Remarque</th><th>Statut</th><th>Actions</th></tr></thead><tbody><tr data-select-row data-page="fournisseurs" data-index="0" data-row-id="FRN-001" class="selected"><td>FRN-001</td><td>Mobilier Design SARL</td><td>+212 6 12 34 56 78</td><td>+212 5 22 11 22 33</td><td>contact@mobilierdesign.ma</td><td>12 Rue Atlas</td><td>Casablanca</td><td>Livraisons hebdomadaires</td><td><span class="status-badge is-success">Actif</span></td><td><button class="row-action">⋮</button></td></tr><tr data-select-row data-page="fournisseurs" data-index="1" data-row-id="FRN-002" class=""><td>FRN-002</td><td>Alliances Bois</td><td>+212 6 67 45 90 12</td><td>+212 5 37 88 44 10</td><td>sales@alliancesbois.ma</td><td>Zone Industrielle 4</td><td>Rabat</td><td>Paiement 30 jours</td><td><span class="status-badge is-success">Actif</span></td><td><button class="row-action">⋮</button></td></tr><tr data-select-row data-page="fournisseurs" data-index="2" data-row-id="FRN-003" class=""><td>FRN-003</td><td>Office Plus</td><td>+212 6 01 98 77 54</td><td>+212 5 24 33 12 09</td><td>support@officeplus.ma</td><td>Bd Hassan II</td><td>Marrakech</td><td>Stock rapide</td><td><span class="status-badge is-success">Actif</span></td><td><button class="row-action">⋮</button></td></tr><tr data-select-row data-page="fournisseurs" data-index="3" data-row-id="FRN-004" class=""><td>FRN-004</td><td>Sud Bureau</td><td>+212 6 87 20 14 55</td><td>+212 5 28 98 11 42</td><td>contact@sudbureau.ma</td><td>Parc Logistique A2</td><td>Agadir</td><td>Délais variables</td><td><span class="status-badge is-success">Inactif</span></td><td><button class="row-action">⋮</button></td></tr><tr data-select-row data-page="fournisseurs" data-index="4" data-row-id="FRN-005" class=""><td>FRN-005</td><td>Bois &amp; Créations</td><td>+212 6 55 22 33 44</td><td>+212 5 24 76 82 11</td><td>pro@boiscreations.ma</td><td>Av. Mohammed V</td><td>Fès</td><td>Qualité premium</td><td><span class="status-badge is-success">Actif</span></td><td><button class="row-action">⋮</button></td></tr></tbody></table></div>
-                        <div class="pagination-row">
-                            <p>Affichage de 1 à 5 sur 5 fournisseurs</p>
-                            <div class="pagination-controls">
-                                <button>«</button><button>‹</button><button class="active">1</button><button>2</button><button>3</button><button>4</button><button>5</button><span>…</span><button>16</button><button>›</button><button>»</button>
-                            </div>
-                        </div>
-                    </section>
-                </div><aside class="detail-panel"><h3>Détails fournisseur</h3><ul><li><span>ID</span><strong>FRN-001</strong></li><li><span>Raison sociale</span><strong>Mobilier Design SARL</strong></li><li><span>Contact</span><strong>+212 6 12 34 56 78</strong></li><li><span>Fax</span><strong>+212 5 22 11 22 33</strong></li><li><span>Email</span><strong>contact@mobilierdesign.ma</strong></li><li><span>Adresse</span><strong>12 Rue Atlas</strong></li><li><span>Ville</span><strong>Casablanca</strong></li><li><span>Remarque</span><strong>Livraisons hebdomadaires</strong></li><li><span>Produits fournis</span><strong>34</strong></li><li><span>Dernière livraison</span><strong>16/05/2026</strong></li></ul><button class="action-button primary full"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17.2V21h3.8l11-11-3.8-3.8-11 11zM14.8 6.2l3.8 3.8" /></svg><span>Modifier le fournisseur</span></button></aside>
-            </section>
-        </section>
-    </main>
+<div class="app-layout">
+    @await Html.PartialAsync("_Sidebar")
+    <div class="main-content">
+        @await Html.PartialAsync("_Topbar", "Fournisseurs")
+        <main class="page-content"><section class="page-shell page-shell-entity">
+
+          <div class="page-actions">
+            @if(ViewBag.CanEdit==true){<button class="action-button primary" onclick="openModal()"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg><span>Ajouter fournisseur</span></button>}
+          </div>
+
+          <section class="stats-grid">
+            <article class="stat-card"><p>Total Fournisseurs</p><strong>@(ViewBag.Total??0)</strong><small>Partenaires</small></article>
+          </section>
+
+          <section class="entity-grid">
+            <div class="entity-left">
+              <section class="filter-bar">
+                <label class="search-input"><svg viewBox="0 0 24 24"><path d="M11 4a7 7 0 1 0 4.9 12l4.1 4.1 1.4-1.4-4.1-4.1A7 7 0 0 0 11 4z"/></svg><input type="text" id="searchInput" placeholder="Rechercher..." oninput="filterTable()" /></label>
+                <button class="action-button secondary" onclick="filterTable(true)"><svg viewBox="0 0 24 24"><path d="M4 4v6h6M20 20v-6h-6M20 10a8 8 0 0 0-14-4M4 14a8 8 0 0 0 14 4"/></svg><span>Réinitialiser</span></button>
+              </section>
+              <section class="card">
+                <div class="table-wrapper">
+                  <table class="data-table has-actions" id="mainTable">
+                    <thead><tr><th>ID</th><th>Raison sociale</th><th>Contact</th><th>Email</th><th>Ville</th><th>Actions</th></tr></thead>
+                    <tbody>
+                      @if(Model!=null){int i=0;foreach(System.Data.DataRow row in Model.Rows){
+                      <tr data-index="@i" class="@(i==0?"selected":"")" onclick="selectRow(this,@i)">
+                        <td>@row["fournisseur_id"]</td><td>@row["raison_social"]</td><td>@row["contact"]</td><td>@row["email"]</td><td>@row["ville"]</td>
+                        <td><div class="row-menu-wrap"><button class="row-action" onclick="toggleMenu(event,this)">⋮</button><div class="row-menu">
+                          @if(ViewBag.CanEdit==true){
+                          <button onclick="editRow(@i)"><svg viewBox="0 0 24 24"><path d="M3 17.2V21h3.8l11-11-3.8-3.8-11 11z"/></svg>Modifier</button>
+                          <button class="is-danger" onclick="confirmDelete(@row["fournisseur_id"])"><svg viewBox="0 0 24 24"><path d="M3 6h18M8 6V4h8v2M19 6l-1 14H6L5 6"/></svg>Supprimer</button>}
+                        </div></div></td>
+                      </tr>
+                      i++;}}
+                    </tbody>
+                  </table>
+                </div>
+                <div class="pagination-row"><p id="paginationInfo"></p></div>
+              </section>
+            </div>
+            <aside class="detail-panel"><h3>Détails fournisseur</h3><ul id="detailList"></ul>
+              @if(ViewBag.CanEdit==true){<button class="action-button primary full" onclick="editRow(selectedIndex)"><svg viewBox="0 0 24 24"><path d="M3 17.2V21h3.8l11-11-3.8-3.8-11 11z"/></svg><span>Modifier</span></button>}
+            </aside>
+          </section>
+        </section></main>
+    </div>
 </div>
+
+<!-- Modal -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModalIfBg(event)">
+  <div class="modal-box">
+    <div class="modal-header"><h3 id="modalTitle">Ajouter un fournisseur</h3><button class="modal-close" onclick="closeModal()">✕</button></div>
+    <div class="form-row">
+      <div class="form-group"><label>Raison sociale</label><input type="text" id="f_rs" /></div>
+      <div class="form-group"><label>Contact</label><input type="text" id="f_co" /></div>
+    </div>
+    <div class="form-row">
+      <div class="form-group"><label>Fax</label><input type="text" id="f_fax" /></div>
+      <div class="form-group"><label>Email</label><input type="email" id="f_em" /></div>
+    </div>
+    <div class="form-row">
+      <div class="form-group"><label>Adresse</label><input type="text" id="f_ad" /></div>
+      <div class="form-group"><label>Ville</label><input type="text" id="f_vi" /></div>
+    </div>
+    <div class="form-group"><label>Remarque</label><textarea id="f_rem" rows="2"></textarea></div>
+    <input type="hidden" id="f_id" />
+    <div class="modal-footer">
+      <button class="action-button secondary" onclick="closeModal()">Annuler</button>
+      <button class="action-button primary" onclick="save()">Enregistrer</button>
+    </div>
+  </div>
 </div>
+
+<!-- Confirm Delete -->
+<div class="modal-overlay" id="confirmOverlay" onclick="closeModalIfBg(event)">
+  <div class="modal-box confirm-dialog">
+    <div class="confirm-icon"><svg viewBox="0 0 24 24"><path d="M3 6h18M8 6V4h8v2M19 6l-1 14H6L5 6"/></svg></div>
+    <h3>Supprimer ce fournisseur ?</h3><p>Cette action est irréversible.</p>
+    <div class="modal-footer"><button class="action-button secondary" onclick="closeConfirm()">Annuler</button><button class="action-button primary" style="background:#ef4444" onclick="doDelete()">Supprimer</button></div>
+  </div>
+</div>
+<div class="toast-wrap" id="toastWrap"></div>
 
 <script>
-        (function() {
-          const PAGE_ROWS = [{"fournisseur_id": "FRN-001", "raison_social": "Mobilier Design SARL", "contact": "+212 6 12 34 56 78", "fax": "+212 5 22 11 22 33", "email": "contact@mobilierdesign.ma", "adress": "12 Rue Atlas", "ville": "Casablanca", "remarque": "Livraisons hebdomadaires", "statut": "Actif", "produits_fournis": 34, "derniere_livraison": "16/05/2026"}, {"fournisseur_id": "FRN-002", "raison_social": "Alliances Bois", "contact": "+212 6 67 45 90 12", "fax": "+212 5 37 88 44 10", "email": "sales@alliancesbois.ma", "adress": "Zone Industrielle 4", "ville": "Rabat", "remarque": "Paiement 30 jours", "statut": "Actif", "produits_fournis": 21, "derniere_livraison": "14/05/2026"}, {"fournisseur_id": "FRN-003", "raison_social": "Office Plus", "contact": "+212 6 01 98 77 54", "fax": "+212 5 24 33 12 09", "email": "support@officeplus.ma", "adress": "Bd Hassan II", "ville": "Marrakech", "remarque": "Stock rapide", "statut": "Actif", "produits_fournis": 18, "derniere_livraison": "12/05/2026"}, {"fournisseur_id": "FRN-004", "raison_social": "Sud Bureau", "contact": "+212 6 87 20 14 55", "fax": "+212 5 28 98 11 42", "email": "contact@sudbureau.ma", "adress": "Parc Logistique A2", "ville": "Agadir", "remarque": "D\u00e9lais variables", "statut": "Inactif", "produits_fournis": 9, "derniere_livraison": "03/05/2026"}, {"fournisseur_id": "FRN-005", "raison_social": "Bois & Cr\u00e9ations", "contact": "+212 6 55 22 33 44", "fax": "+212 5 24 76 82 11", "email": "pro@boiscreations.ma", "adress": "Av. Mohammed V", "ville": "F\u00e8s", "remarque": "Qualit\u00e9 premium", "statut": "Actif", "produits_fournis": 27, "derniere_livraison": "17/05/2026"}];
-          const DETAIL_FIELDS = [{"label": "ID", "key": "fournisseur_id"}, {"label": "Raison sociale", "key": "raison_social"}, {"label": "Contact", "key": "contact"}, {"label": "Fax", "key": "fax"}, {"label": "Email", "key": "email"}, {"label": "Adresse", "key": "adress"}, {"label": "Ville", "key": "ville"}, {"label": "Remarque", "key": "remarque"}, {"label": "Produits fournis", "key": "produits_fournis"}, {"label": "Derni\u00e8re livraison", "key": "derniere_livraison"}];
-
-          const rows = document.querySelectorAll("[data-select-row]");
-          const detailPanel = document.querySelector(".detail-panel");
-
-          function updateDetail(index) {
-            const record = PAGE_ROWS[index];
-            if (!record) return;
-            rows.forEach(r => r.classList.remove("selected"));
-            rows[index].classList.add("selected");
-            const list = detailPanel.querySelector("ul");
-            list.innerHTML = DETAIL_FIELDS.map(f => `<li><span>${f.label}</span><strong>${record[f.key] || "-"}</strong></li>`).join("");
-            const descDiv = detailPanel.querySelector(".detail-description p");
-            if (descDiv) {
-              descDiv.textContent = record.description || record.remarque || "";
-            }
-          }
-
-          rows.forEach((row, i) => {
-            row.addEventListener("click", () => updateDetail(i));
-          });
-        })();
+const ROWS = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(
+  (Model?.Rows.Cast<System.Data.DataRow>() ?? System.Linq.Enumerable.Empty<System.Data.DataRow>()).Select(r => new {
+    id=r["fournisseur_id"], rs=r["raison_social"]?.ToString(), co=r["contact"]?.ToString(),
+    fax=r["fax"]?.ToString(), em=r["email"]?.ToString(), ad=r["adress"]?.ToString(),
+    vi=r["ville"]?.ToString(), rem=r["remarque"]?.ToString()
+  }).ToList()
+));
+let selectedIndex=0, deleteId=null;
+const FIELDS=[['ID','id'],['Raison sociale','rs'],['Contact','co'],['Fax','fax'],['Email','em'],['Adresse','ad'],['Ville','vi'],['Remarque','rem']];
+function selectRow(el,i){document.querySelectorAll('#mainTable tbody tr').forEach(r=>r.classList.remove('selected'));el.classList.add('selected');selectedIndex=i;updateDetail(ROWS[i]);}
+function updateDetail(r){if(!r)return;document.getElementById('detailList').innerHTML=FIELDS.map(([l,k])=>`<li><span>${l}</span><strong>${r[k]||'-'}</strong></li>`).join('');}
+function filterTable(reset){if(reset)document.getElementById('searchInput').value='';const q=document.getElementById('searchInput').value.toLowerCase();let n=0;document.querySelectorAll('#mainTable tbody tr').forEach(tr=>{const ok=tr.textContent.toLowerCase().includes(q);tr.style.display=ok?'':'none';if(ok)n++;});document.getElementById('paginationInfo').textContent=`${n} résultat(s)`;}
+function toggleMenu(e,btn){e.stopPropagation();const m=btn.nextElementSibling;document.querySelectorAll('.row-menu.is-open').forEach(x=>{if(x!==m)x.classList.remove('is-open');});m.classList.toggle('is-open');}
+document.addEventListener('click',()=>document.querySelectorAll('.row-menu.is-open').forEach(m=>m.classList.remove('is-open')));
+function openModal(){document.getElementById('modalTitle').textContent='Ajouter un fournisseur';['f_id','f_rs','f_co','f_fax','f_em','f_ad','f_vi','f_rem'].forEach(id=>document.getElementById(id).value='');document.getElementById('modalOverlay').classList.add('is-open');}
+function editRow(i){const r=ROWS[i];if(!r)return;document.getElementById('modalTitle').textContent='Modifier le fournisseur';document.getElementById('f_id').value=r.id;document.getElementById('f_rs').value=r.rs||'';document.getElementById('f_co').value=r.co||'';document.getElementById('f_fax').value=r.fax||'';document.getElementById('f_em').value=r.em||'';document.getElementById('f_ad').value=r.ad||'';document.getElementById('f_vi').value=r.vi||'';document.getElementById('f_rem').value=r.rem||'';document.getElementById('modalOverlay').classList.add('is-open');}
+function closeModal(){document.getElementById('modalOverlay').classList.remove('is-open');}
+function closeConfirm(){document.getElementById('confirmOverlay').classList.remove('is-open');}
+function closeModalIfBg(e){if(e.target.classList.contains('modal-overlay')){closeModal();closeConfirm();}}
+async function save(){
+  const id=document.getElementById('f_id').value;
+  const body=new URLSearchParams({raisonSocial:document.getElementById('f_rs').value,contact:document.getElementById('f_co').value,fax:document.getElementById('f_fax').value,email:document.getElementById('f_em').value,adress:document.getElementById('f_ad').value,ville:document.getElementById('f_vi').value,remarque:document.getElementById('f_rem').value});
+  if(id)body.append('id',id);
+  const r=await fetch(id?'/Fournisseurs/Update':'/Fournisseurs/Create',{method:'POST',body});const d=await r.json();
+  if(d.success){showToast(d.message,'success');closeModal();setTimeout(()=>location.reload(),700);}else showToast(d.message,'error');
+}
+function confirmDelete(id){deleteId=id;document.getElementById('confirmOverlay').classList.add('is-open');}
+async function doDelete(){const r=await fetch('/Fournisseurs/Delete',{method:'POST',body:new URLSearchParams({id:deleteId})});const d=await r.json();closeConfirm();if(d.success){showToast(d.message,'success');setTimeout(()=>location.reload(),700);}else showToast(d.message,'error');}
+function showToast(msg,type){const t=document.createElement('div');t.className=`toast ${type}`;t.textContent=msg;document.getElementById('toastWrap').appendChild(t);setTimeout(()=>t.remove(),3500);}
+if(ROWS.length>0){updateDetail(ROWS[0]);document.getElementById('paginationInfo').textContent=`${ROWS.length} fournisseur(s)`;}
 </script>
-
 </body>
 </html>
+
+
+
+

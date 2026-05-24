@@ -1,61 +1,85 @@
-@{
-    Layout = null;
-}
+﻿@model System.Data.DataTable
+@{ Layout = null; }
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>StockManager - Localité</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="~/css/styles.css" />
-  </head>
-  <body>
-    <div class="app-layout">@await Html.PartialAsync("_Sidebar")<div class="main-content">
-    @await Html.PartialAsync("_Topbar", "Localit�s")
-    <main class="page-content"><section class="page-shell"><div class="page-actions"><button class="action-button primary"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14" /></svg><span>Ajouter une localité</span></button></div><section class="stats-grid"><article class="stat-card"><p>Total Localités</p><strong>5</strong><small>Emplacements</small></article><article class="stat-card"><p>Stocks associés</p><strong>5</strong><small>Associations</small></article><article class="stat-card"><p>Entrepôts</p><strong>1</strong><small>Principal</small></article><article class="stat-card"><p>Showrooms</p><strong>2</strong><small>Actifs</small></article></section><section class="entity-grid"><div class="entity-left"><section class="filter-bar"><label class="search-input"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 4a7 7 0 1 0 4.9 12l4.1 4.1 1.4-1.4-4.1-4.1A7 7 0 0 0 11 4z" /></svg><input type="text" placeholder="Rechercher une localité..." /></label><label><span>Type</span><select><option>Tous</option><option>Entrepôt</option><option>Dépôt</option><option>Showroom</option></select></label><label><span>Stock associé</span><select><option>Tous</option><option>STK-001</option><option>STK-002</option><option>STK-003</option><option>STK-004</option><option>STK-005</option></select></label><label><span>Statut</span><select><option>Tous</option><option>Actif</option><option>Inactif</option></select></label><button class="action-button secondary"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4v6h6M20 20v-6h-6M20 10a8 8 0 0 0-14-4M4 14a8 8 0 0 0 14 4" /></svg><span>Réinitialiser</span></button></section><section class="card"><div class="table-wrapper"><table class="data-table"><thead><tr><th>ID</th><th>Stock associé</th><th>Intitulé</th><th>Type</th><th>Statut</th><th>Actions</th></tr></thead><tbody><tr data-select-row data-page="localite" data-index="0" data-row-id="LOC-001" class="selected"><td>LOC-001</td><td>STK-001</td><td>Entrepôt Central</td><td>Entrepôt</td><td><span class="status-badge is-success">Actif</span></td><td><button class="row-action">⋮</button></td></tr><tr data-select-row data-page="localite" data-index="1" data-row-id="LOC-002" class=""><td>LOC-002</td><td>STK-002</td><td>Dépôt Nord</td><td>Dépôt</td><td><span class="status-badge is-success">Actif</span></td><td><button class="row-action">⋮</button></td></tr><tr data-select-row data-page="localite" data-index="2" data-row-id="LOC-003" class=""><td>LOC-003</td><td>STK-003</td><td>Dépôt Sud</td><td>Dépôt</td><td><span class="status-badge is-success">Actif</span></td><td><button class="row-action">⋮</button></td></tr><tr data-select-row data-page="localite" data-index="3" data-row-id="LOC-004" class=""><td>LOC-004</td><td>STK-004</td><td>Showroom Rabat</td><td>Showroom</td><td><span class="status-badge is-success">Actif</span></td><td><button class="row-action">⋮</button></td></tr><tr data-select-row data-page="localite" data-index="4" data-row-id="LOC-005" class=""><td>LOC-005</td><td>STK-005</td><td>Showroom Casablanca</td><td>Showroom</td><td><span class="status-badge is-success">Actif</span></td><td><button class="row-action">⋮</button></td></tr></tbody></table></div>
-    <div class="pagination-row">
-      <p>Affichage de 1 à 5 sur 5 localités</p>
-      <div class="pagination-controls">
-        <button>«</button><button>‹</button><button class="active">1</button><button>2</button><button>3</button><button>4</button><button>5</button><span>…</span><button>16</button><button>›</button><button>»</button>
-      </div>
-    </div>
-    </section></div><aside class="detail-panel"><h3>Détails localité</h3><ul><li><span>ID</span><strong>LOC-001</strong></li><li><span>Intitulé</span><strong>Entrepôt Central</strong></li><li><span>Type</span><strong>Entrepôt</strong></li><li><span>Statut</span><strong>Actif</strong></li><li><span>Stock associé</span><strong>STK-001</strong></li></ul><div class="detail-description"><h4>Description</h4><p>Emplacement rattaché à la gestion de stock et aux mouvements logistiques.</p></div><button class="action-button primary full"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17.2V21h3.8l11-11-3.8-3.8-11 11zM14.8 6.2l3.8 3.8" /></svg><span>Voir le stock</span></button></aside></section></section></main></div></div>
-    
-  
+<head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>StockManager - Localités</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="~/css/styles.css" /></head>
+<body><div class="app-layout">
+@await Html.PartialAsync("_Sidebar")
+<div class="main-content">@await Html.PartialAsync("_Topbar", "Localités")<main class="page-content"><section class="page-shell page-shell-entity">
+
+<div class="page-actions">
+  @if(ViewBag.CanEdit==true){<button class="action-button primary" onclick="openModal()"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg><span>Ajouter localité</span></button>}
+</div>
+<section class="stats-grid"><article class="stat-card"><p>Total Localités</p><strong>@(ViewBag.Total??0)</strong><small>Emplacements</small></article></section>
+
+<section class="entity-grid"><div class="entity-left">
+<section class="filter-bar">
+  <label class="search-input"><svg viewBox="0 0 24 24"><path d="M11 4a7 7 0 1 0 4.9 12l4.1 4.1 1.4-1.4-4.1-4.1A7 7 0 0 0 11 4z"/></svg><input type="text" id="searchInput" placeholder="Rechercher..." oninput="filterTable()" /></label>
+  <button class="action-button secondary" onclick="filterTable(true)"><svg viewBox="0 0 24 24"><path d="M4 4v6h6M20 20v-6h-6M20 10a8 8 0 0 0-14-4M4 14a8 8 0 0 0 14 4"/></svg><span>Réinitialiser</span></button>
+</section>
+<section class="card"><div class="table-wrapper"><table class="data-table has-actions" id="mainTable">
+  <thead><tr><th>ID</th><th>Intitulé</th><th>Actions</th></tr></thead>
+  <tbody>
+    @if(Model!=null){int i=0;foreach(System.Data.DataRow row in Model.Rows){
+    <tr data-index="@i" class="@(i==0?"selected":"")" onclick="selectRow(this,@i)">
+      <td>@row["id"]</td><td>@row["intitule"]</td>
+      <td><div class="row-menu-wrap"><button class="row-action" onclick="toggleMenu(event,this)">⋮</button><div class="row-menu">
+        @if(ViewBag.CanEdit==true){
+        <button onclick="openEditModalByIndex(@i)"><svg viewBox="0 0 24 24"><path d="M3 17.2V21h3.8l11-11-3.8-3.8-11 11z"/></svg>Modifier</button>
+        <button class="is-danger" onclick="confirmDelete(@row["id"])"><svg viewBox="0 0 24 24"><path d="M3 6h18M8 6V4h8v2M19 6l-1 14H6L5 6"/></svg>Supprimer</button>}
+      </div></div></td>
+    </tr>
+    i++;}}
+  </tbody>
+</table></div><div class="pagination-row"><p id="paginationInfo"></p></div></section>
+</div>
+<aside class="detail-panel"><h3>Détails localité</h3><ul id="detailList"></ul>
+  @if(ViewBag.CanEdit==true){<button class="action-button primary full" onclick="editSelected()"><svg viewBox="0 0 24 24"><path d="M3 17.2V21h3.8l11-11-3.8-3.8-11 11z"/></svg><span>Modifier</span></button>}
+</aside>
+</section>
+</section></main></div></div>
+
+<div class="modal-overlay" id="modalOverlay" onclick="closeModalIfBg(event)"><div class="modal-box">
+  <div class="modal-header"><h3 id="modalTitle">Ajouter une localité</h3><button class="modal-close" onclick="closeModal()">✕</button></div>
+  <div class="form-group"><label>Intitulé</label><input type="text" id="f_intitule" placeholder="Ex: Entrepôt Central" /></div>
+  <input type="hidden" id="f_id" />
+  <div class="modal-footer"><button class="action-button secondary" onclick="closeModal()">Annuler</button><button class="action-button primary" onclick="save()">Enregistrer</button></div>
+</div></div>
+
+<div class="modal-overlay" id="confirmOverlay" onclick="closeModalIfBg(event)"><div class="modal-box confirm-dialog">
+  <div class="confirm-icon"><svg viewBox="0 0 24 24"><path d="M3 6h18M8 6V4h8v2M19 6l-1 14H6L5 6"/></svg></div>
+  <h3>Supprimer cette localité ?</h3><p>Cette action est irréversible.</p>
+  <div class="modal-footer"><button class="action-button secondary" onclick="closeConfirm()">Annuler</button><button class="action-button primary" style="background:#ef4444" onclick="doDelete()">Supprimer</button></div>
+</div></div>
+<div class="toast-wrap" id="toastWrap"></div>
+
 <script>
-  (function() {
-    const PAGE_ROWS = [{"id": "LOC-001", "stock": "STK-001", "intitule": "Entrep\u00f4t Central", "type": "Entrep\u00f4t", "statut": "Actif"}, {"id": "LOC-002", "stock": "STK-002", "intitule": "D\u00e9p\u00f4t Nord", "type": "D\u00e9p\u00f4t", "statut": "Actif"}, {"id": "LOC-003", "stock": "STK-003", "intitule": "D\u00e9p\u00f4t Sud", "type": "D\u00e9p\u00f4t", "statut": "Actif"}, {"id": "LOC-004", "stock": "STK-004", "intitule": "Showroom Rabat", "type": "Showroom", "statut": "Actif"}, {"id": "LOC-005", "stock": "STK-005", "intitule": "Showroom Casablanca", "type": "Showroom", "statut": "Actif"}];
-    const DETAIL_FIELDS = [{"label": "ID", "key": "id"}, {"label": "Intitul\u00e9", "key": "intitule"}, {"label": "Type", "key": "type"}, {"label": "Statut", "key": "statut"}, {"label": "Stock associ\u00e9", "key": "stock"}];
-
-    const rows = document.querySelectorAll("[data-select-row]");
-    const detailPanel = document.querySelector(".detail-panel");
-
-    function updateDetail(index) {
-      const record = PAGE_ROWS[index];
-      if (!record) return;
-      
-      rows.forEach(r => r.classList.remove("selected"));
-      rows[index].classList.add("selected");
-
-      const list = detailPanel.querySelector("ul");
-      list.innerHTML = DETAIL_FIELDS.map(f => `<li><span>${f.label}</span><strong>${record[f.key] || "-"}</strong></li>`).join("");
-      
-      const descDiv = detailPanel.querySelector(".detail-description p");
-      if (descDiv) {
-        descDiv.textContent = record.description || record.remarque || "";
-      }
-    }
-
-    rows.forEach((row, i) => {
-      row.addEventListener("click", () => updateDetail(i));
-    });
-  })();
+const ROWS=@Html.Raw(System.Text.Json.JsonSerializer.Serialize((Model?.Rows.Cast<System.Data.DataRow>() ?? System.Linq.Enumerable.Empty<System.Data.DataRow>()).Select(r=>new{id=r["id"],intitule=r["intitule"]?.ToString()}).ToList()));
+let selectedIndex=0,deleteId=null;
+function selectRow(el,i){document.querySelectorAll('#mainTable tbody tr').forEach(r=>r.classList.remove('selected'));el.classList.add('selected');selectedIndex=i;updateDetail(ROWS[i]);}
+function updateDetail(r){if(!r)return;document.getElementById('detailList').innerHTML=`<li><span>ID</span><strong>${r.id}</strong></li><li><span>Intitulé</span><strong>${r.intitule||'-'}</strong></li>`;}
+function filterTable(reset){if(reset)document.getElementById('searchInput').value='';const q=document.getElementById('searchInput').value.toLowerCase();let n=0;document.querySelectorAll('#mainTable tbody tr').forEach(tr=>{const ok=tr.textContent.toLowerCase().includes(q);tr.style.display=ok?'':'none';if(ok)n++;});document.getElementById('paginationInfo').textContent=`${n} résultat(s)`;}
+function toggleMenu(e,btn){e.stopPropagation();const m=btn.nextElementSibling;document.querySelectorAll('.row-menu.is-open').forEach(x=>{if(x!==m)x.classList.remove('is-open');});m.classList.toggle('is-open');}
+document.addEventListener('click',()=>document.querySelectorAll('.row-menu.is-open').forEach(m=>m.classList.remove('is-open')));
+function openModal(){document.getElementById('modalTitle').textContent='Ajouter une localité';document.getElementById('f_id').value='';document.getElementById('f_intitule').value='';document.getElementById('modalOverlay').classList.add('is-open');}
+function openEditModal(id,intitule){document.getElementById('modalTitle').textContent='Modifier la localité';document.getElementById('f_id').value=id;document.getElementById('f_intitule').value=intitule;document.getElementById('modalOverlay').classList.add('is-open');}
+function openEditModalByIndex(i){const r=ROWS[i];if(r)openEditModal(r.id,r.intitule);}
+function editSelected(){const r=ROWS[selectedIndex];if(r)openEditModal(r.id,r.intitule);}
+function closeModal(){document.getElementById('modalOverlay').classList.remove('is-open');}
+function closeConfirm(){document.getElementById('confirmOverlay').classList.remove('is-open');}
+function closeModalIfBg(e){if(e.target.classList.contains('modal-overlay')){closeModal();closeConfirm();}}
+async function save(){const id=document.getElementById('f_id').value,intitule=document.getElementById('f_intitule').value.trim();if(!intitule){showToast('L\'intitulé est requis.','error');return;}const body=new URLSearchParams({intitule});if(id)body.append('id',id);const r=await fetch(id?'/Localite/Update':'/Localite/Create',{method:'POST',body});const d=await r.json();if(d.success){showToast(d.message,'success');closeModal();setTimeout(()=>location.reload(),700);}else showToast(d.message,'error');}
+function confirmDelete(id){deleteId=id;document.getElementById('confirmOverlay').classList.add('is-open');}
+async function doDelete(){const r=await fetch('/Localite/Delete',{method:'POST',body:new URLSearchParams({id:deleteId})});const d=await r.json();closeConfirm();if(d.success){showToast(d.message,'success');setTimeout(()=>location.reload(),700);}else showToast(d.message,'error');}
+function showToast(msg,type){const t=document.createElement('div');t.className=`toast ${type}`;t.textContent=msg;document.getElementById('toastWrap').appendChild(t);setTimeout(()=>t.remove(),3500);}
+if(ROWS.length>0){updateDetail(ROWS[0]);document.getElementById('paginationInfo').textContent=`${ROWS.length} localité(s)`;}
 </script>
+</body></html>
 
-  </body>
-</html>
+
 
 

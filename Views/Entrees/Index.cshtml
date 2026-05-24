@@ -1,68 +1,128 @@
-@{
-    Layout = null;
-}
+﻿@model System.Data.DataTable
+@{ Layout = null; }
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>StockManager - Entrées</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="~/css/styles.css" />
-</head>
-<body>
-    <div class="app-layout">
-        @await Html.PartialAsync("_Sidebar")
-        <div class="main-content">
-            @await Html.PartialAsync("_Topbar", "Entr�es")
-            <main class="page-content">
-                <section class="page-shell">
-                    <div class="page-actions"><button class="action-button primary"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14" /></svg><span>Ajouter une entrée</span></button><button class="action-button secondary"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12M8 11l4 4 4-4M5 20h14" /></svg><span>Exporter</span></button></div><section class="stats-grid"><article class="stat-card"><p>Total entrées</p><strong>482</strong><small>Mouvements</small></article><article class="stat-card"><p>Quantité reçue</p><strong>2 914</strong><small>Unités</small></article><article class="stat-card"><p>Fournisseurs actifs</p><strong>5</strong><small>Ce mois</small></article><article class="stat-card"><p>Produits concernés</p><strong>86</strong><small>Références</small></article></section><section class="entity-grid">
-                    <div class="entity-left">
-                        <section class="filter-bar"><label class="search-input"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 4a7 7 0 1 0 4.9 12l4.1 4.1 1.4-1.4-4.1-4.1A7 7 0 0 0 11 4z" /></svg><input type="text" placeholder="Rechercher une entrée..." /></label><label><span>Date range</span><select><option>30 derniers jours</option><option>7 derniers jours</option><option>Ce mois</option></select></label><label><span>Fournisseur</span><select><option>Tous</option><option>Mobilier Design SARL</option><option>Alliances Bois</option><option>Office Plus</option><option>Sud Bureau</option><option>Bois &amp; Créations</option></select></label><label><span>Stock</span><select><option>Tous</option><option>STK-001</option><option>STK-002</option><option>STK-003</option><option>STK-004</option><option>STK-005</option></select></label><label><span>Origine</span><select><option>Toutes</option><option>Maroc</option><option>France</option><option>Allemagne</option><option>Italie</option></select></label><label><span>Produit</span><select><option>Tous</option><option>PRD-001</option><option>PRD-002</option><option>PRD-003</option><option>PRD-004</option><option>PRD-005</option></select></label><label><span>Statut</span><select><option>Tous</option><option>Validée</option><option>En attente</option></select></label><button class="action-button secondary"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4v6h6M20 20v-6h-6M20 10a8 8 0 0 0-14-4M4 14a8 8 0 0 0 14 4" /></svg><span>Réinitialiser</span></button></section><section class="card">
-                        <div class="table-wrapper"><table class="data-table"><thead><tr><th>ID</th><th>Date entrée</th><th>Qté entrée</th><th>Produit</th><th>Stock</th><th>Fournisseur</th><th>Origine</th><th>Statut</th><th>Actions</th></tr></thead><tbody><tr data-select-row data-page="entrees" data-index="0" data-row-id="ENT-001" class="selected"><td>ENT-001</td><td>18/05/2026</td><td>40</td><td>Chaise de bureau Ergonomique</td><td>STK-001</td><td>Mobilier Design SARL</td><td>France</td><td><span class="status-badge is-success">Validée</span></td><td><button class="row-action">⋮</button></td></tr><tr data-select-row data-page="entrees" data-index="1" data-row-id="ENT-002" class=""><td>ENT-002</td><td>17/05/2026</td><td>22</td><td>Bureau Direction 160x80</td><td>STK-002</td><td>Alliances Bois</td><td>Maroc</td><td><span class="status-badge is-success">Validée</span></td><td><button class="row-action">⋮</button></td></tr><tr data-select-row data-page="entrees" data-index="2" data-row-id="ENT-003" class=""><td>ENT-003</td><td>15/05/2026</td><td>30</td><td>Table basse bois massif</td><td>STK-003</td><td>Bois &amp; Créations</td><td>Italie</td><td><span class="status-badge is-success">Validée</span></td><td><button class="row-action">⋮</button></td></tr><tr data-select-row data-page="entrees" data-index="3" data-row-id="ENT-004" class=""><td>ENT-004</td><td>14/05/2026</td><td>10</td><td>Bibliothèque étagère</td><td>STK-004</td><td>Office Plus</td><td>Italie</td><td><span class="status-badge is-warning">En attente</span></td><td><button class="row-action">⋮</button></td></tr></tbody></table></div>
-                        <div class="pagination-row">
-                            <p>Affichage de 1 à 4 sur 482 entrées</p>
-                            <div class="pagination-controls">
-                                <button>«</button><button>‹</button><button class="active">1</button><button>2</button><button>3</button><button>4</button><button>5</button><span>…</span><button>16</button><button>›</button><button>»</button>
-                            </div>
-                        </div>
-                    </section>
-                </div><aside class="detail-panel"><h3>Détails entrée</h3><ul><li><span>ID Entrée</span><strong>ENT-001</strong></li><li><span>Date d&#039;entrée</span><strong>18/05/2026</strong></li><li><span>Quantité entrée</span><strong>40</strong></li><li><span>Produit</span><strong>Chaise de bureau Ergonomique</strong></li><li><span>Stock</span><strong>STK-001</strong></li><li><span>Fournisseur</span><strong>Mobilier Design SARL</strong></li><li><span>Origine</span><strong>France</strong></li><li><span>Statut</span><strong>Validée</strong></li></ul><button class="action-button primary full"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17.2V21h3.8l11-11-3.8-3.8-11 11zM14.8 6.2l3.8 3.8" /></svg><span>Modifier l&#039;entrée</span></button></aside>
-            </section>
-        </section>
-    </main>
+<head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>StockManager - Entrées</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="~/css/styles.css" /></head>
+<body><div class="app-layout">
+@await Html.PartialAsync("_Sidebar")
+<div class="main-content">@await Html.PartialAsync("_Topbar", "Entrées")<main class="page-content"><section class="page-shell page-shell-entity">
+
+<div class="page-actions">
+  @if(ViewBag.CanEdit==true){<button class="action-button primary" onclick="openModal()"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg><span>Ajouter une entrée</span></button>}
 </div>
+
+<section class="stats-grid">
+  <article class="stat-card"><p>Total Entrées</p><strong>@(ViewBag.TotalEntrees??0)</strong><small>Mouvements</small></article>
+  <article class="stat-card"><p>Quantité totale</p><strong>@(ViewBag.TotalQte??0)</strong><small>Unités</small></article>
+</section>
+
+<section class="entity-grid"><div class="entity-left">
+<section class="filter-bar">
+  <label class="search-input"><svg viewBox="0 0 24 24"><path d="M11 4a7 7 0 1 0 4.9 12l4.1 4.1 1.4-1.4-4.1-4.1A7 7 0 0 0 11 4z"/></svg><input type="text" id="searchInput" placeholder="Rechercher une entrée..." oninput="filterTable()" /></label>
+  <button class="action-button secondary" onclick="filterTable(true)"><svg viewBox="0 0 24 24"><path d="M4 4v6h6M20 20v-6h-6M20 10a8 8 0 0 0-14-4M4 14a8 8 0 0 0 14 4"/></svg><span>Réinitialiser</span></button>
+</section>
+<section class="card"><div class="table-wrapper"><table class="data-table has-actions" id="mainTable">
+  <thead><tr><th>ID</th><th>Date</th><th>Qté</th><th>Produit</th><th>Fournisseur</th><th>Origine</th><th>Stock ID</th><th>Actions</th></tr></thead>
+  <tbody>
+    @if(Model!=null){int i=0;foreach(System.Data.DataRow row in Model.Rows){
+    string dateStr = row["date_entree"]==DBNull.Value?"":((DateTime)row["date_entree"]).ToString("dd/MM/yyyy");
+    <tr data-index="@i" class="@(i==0?"selected":"")" onclick="selectRow(this,@i)">
+      <td>@row["id"]</td><td>@dateStr</td><td>@row["qte_entree"]</td>
+      <td>@row["produit_label"]</td><td>@row["fournisseur_label"]</td><td>@row["origin_label"]</td><td>@row["stock_id"]</td>
+      <td><div class="row-menu-wrap"><button class="row-action" onclick="toggleMenu(event,this)">⋮</button><div class="row-menu">
+        @if(ViewBag.CanEdit==true){
+        <button onclick="editRow(@i)"><svg viewBox="0 0 24 24"><path d="M3 17.2V21h3.8l11-11-3.8-3.8-11 11z"/></svg>Modifier</button>
+        <button class="is-danger" onclick="confirmDelete(@row["id"])"><svg viewBox="0 0 24 24"><path d="M3 6h18M8 6V4h8v2M19 6l-1 14H6L5 6"/></svg>Supprimer</button>}
+      </div></div></td>
+    </tr>
+    i++;}}
+  </tbody>
+</table></div><div class="pagination-row"><p id="paginationInfo"></p></div></section>
 </div>
+<aside class="detail-panel"><h3>Détails entrée</h3><ul id="detailList"></ul>
+  @if(ViewBag.CanEdit==true){<button class="action-button primary full" onclick="editRow(selectedIndex)"><svg viewBox="0 0 24 24"><path d="M3 17.2V21h3.8l11-11-3.8-3.8-11 11z"/></svg><span>Modifier</span></button>}
+</aside>
+</section>
+</section></main></div></div>
+
+<!-- Modal Add/Edit -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModalIfBg(event)"><div class="modal-box">
+  <div class="modal-header"><h3 id="modalTitle">Ajouter une entrée</h3><button class="modal-close" onclick="closeModal()">✕</button></div>
+  <div class="form-row">
+    <div class="form-group"><label>Date d'entrée</label><input type="date" id="f_date" /></div>
+    <div class="form-group"><label>Quantité</label><input type="number" id="f_qte" min="1" /></div>
+  </div>
+  <div class="form-group"><label>Produit</label>
+    <select id="f_pid"><option value="">-- Choisir --</option>
+      @if(ViewBag.Produits!=null){foreach(System.Data.DataRow p in ((System.Data.DataTable)ViewBag.Produits).Rows){<option value="@p["produit_id"]">@p["label"]</option>}}
+    </select>
+  </div>
+  <div class="form-row">
+    <div class="form-group"><label>Fournisseur</label>
+      <select id="f_fid"><option value="">-- Choisir --</option>
+        @if(ViewBag.Fournisseurs!=null){foreach(System.Data.DataRow f in ((System.Data.DataTable)ViewBag.Fournisseurs).Rows){<option value="@f["fournisseur_id"]">@f["raison_social"]</option>}}
+      </select>
+    </div>
+    <div class="form-group"><label>Origine</label>
+      <select id="f_oid"><option value="">-- Choisir --</option>
+        @if(ViewBag.Origins!=null){foreach(System.Data.DataRow o in ((System.Data.DataTable)ViewBag.Origins).Rows){<option value="@o["id"]">@o["type"]</option>}}
+      </select>
+    </div>
+  </div>
+  <div class="form-group"><label>ID Stock</label>
+    <select id="f_sid"><option value="">-- Choisir --</option>
+      @if(ViewBag.Stocks!=null){foreach(System.Data.DataRow s in ((System.Data.DataTable)ViewBag.Stocks).Rows){<option value="@s["id"]">STK-@s["id"]</option>}}
+    </select>
+  </div>
+  <input type="hidden" id="f_id" />
+  <div class="modal-footer"><button class="action-button secondary" onclick="closeModal()">Annuler</button><button class="action-button primary" onclick="save()">Enregistrer</button></div>
+</div></div>
+
+<div class="modal-overlay" id="confirmOverlay" onclick="closeModalIfBg(event)"><div class="modal-box confirm-dialog">
+  <div class="confirm-icon"><svg viewBox="0 0 24 24"><path d="M3 6h18M8 6V4h8v2M19 6l-1 14H6L5 6"/></svg></div>
+  <h3>Supprimer cette entrée ?</h3><p>Le stock sera ajusté en conséquence.</p>
+  <div class="modal-footer"><button class="action-button secondary" onclick="closeConfirm()">Annuler</button><button class="action-button primary" style="background:#ef4444" onclick="doDelete()">Supprimer</button></div>
+</div></div>
+<div class="toast-wrap" id="toastWrap"></div>
 
 <script>
-        (function() {
-          const PAGE_ROWS = [{"id": "ENT-001", "date_entree": "18/05/2026", "qte_entree": 40, "produit_id": "PRD-001", "produit": "Chaise de bureau Ergonomique", "stock_id": "STK-001", "fournisseur_id": "FRN-001", "fournisseur": "Mobilier Design SARL", "origin_id": "ORG-002", "origine": "France", "statut": "Valid\u00e9e"}, {"id": "ENT-002", "date_entree": "17/05/2026", "qte_entree": 22, "produit_id": "PRD-002", "produit": "Bureau Direction 160x80", "stock_id": "STK-002", "fournisseur_id": "FRN-002", "fournisseur": "Alliances Bois", "origin_id": "ORG-001", "origine": "Maroc", "statut": "Valid\u00e9e"}, {"id": "ENT-003", "date_entree": "15/05/2026", "qte_entree": 30, "produit_id": "PRD-004", "produit": "Table basse bois massif", "stock_id": "STK-003", "fournisseur_id": "FRN-005", "fournisseur": "Bois & Cr\u00e9ations", "origin_id": "ORG-004", "origine": "Italie", "statut": "Valid\u00e9e"}, {"id": "ENT-004", "date_entree": "14/05/2026", "qte_entree": 10, "produit_id": "PRD-007", "produit": "Biblioth\u00e8que \u00e9tag\u00e8re", "stock_id": "STK-004", "fournisseur_id": "FRN-003", "fournisseur": "Office Plus", "origin_id": "ORG-004", "origine": "Italie", "statut": "En attente"}];
-          const DETAIL_FIELDS = [{"label": "ID Entr\u00e9e", "key": "id"}, {"label": "Date d'entr\u00e9e", "key": "date_entree"}, {"label": "Quantit\u00e9 entr\u00e9e", "key": "qte_entree"}, {"label": "Produit", "key": "produit"}, {"label": "Stock", "key": "stock_id"}, {"label": "Fournisseur", "key": "fournisseur"}, {"label": "Origine", "key": "origine"}, {"label": "Statut", "key": "statut"}];
-
-          const rows = document.querySelectorAll("[data-select-row]");
-          const detailPanel = document.querySelector(".detail-panel");
-
-          function updateDetail(index) {
-            const record = PAGE_ROWS[index];
-            if (!record) return;
-            rows.forEach(r => r.classList.remove("selected"));
-            rows[index].classList.add("selected");
-            const list = detailPanel.querySelector("ul");
-            list.innerHTML = DETAIL_FIELDS.map(f => `<li><span>${f.label}</span><strong>${record[f.key] || "-"}</strong></li>`).join("");
-            const descDiv = detailPanel.querySelector(".detail-description p");
-            if (descDiv) {
-              descDiv.textContent = record.description || record.remarque || "";
-            }
-          }
-
-          rows.forEach((row, i) => {
-            row.addEventListener("click", () => updateDetail(i));
-          });
-        })();
+const ROWS=@Html.Raw(System.Text.Json.JsonSerializer.Serialize((Model?.Rows.Cast<System.Data.DataRow>() ?? System.Linq.Enumerable.Empty<System.Data.DataRow>()).Select(r=>new{
+  id=r["id"], date=r["date_entree"]==DBNull.Value?"":(((DateTime)r["date_entree"]).ToString("yyyy-MM-dd")),
+  dateDisp=r["date_entree"]==DBNull.Value?"":(((DateTime)r["date_entree"]).ToString("dd/MM/yyyy")),
+  qte=r["qte_entree"], pid=r["produit_id"], produit=r["produit_label"]?.ToString(),
+  fid=r["fournisseur_id"], fournisseur=r["fournisseur_label"]?.ToString(),
+  oid=r["origin_id"], origine=r["origin_label"]?.ToString(), sid=r["stock_id"]
+}).ToList()));
+let selectedIndex=0,deleteId=null;
+const FIELDS=[['ID','id'],['Date','dateDisp'],['Quantité','qte'],['Produit','produit'],['Fournisseur','fournisseur'],['Origine','origine'],['Stock ID','sid']];
+function selectRow(el,i){document.querySelectorAll('#mainTable tbody tr').forEach(r=>r.classList.remove('selected'));el.classList.add('selected');selectedIndex=i;updateDetail(ROWS[i]);}
+function updateDetail(r){if(!r)return;document.getElementById('detailList').innerHTML=FIELDS.map(([l,k])=>`<li><span>${l}</span><strong>${r[k]||'-'}</strong></li>`).join('');}
+function filterTable(reset){if(reset)document.getElementById('searchInput').value='';const q=document.getElementById('searchInput').value.toLowerCase();let n=0;document.querySelectorAll('#mainTable tbody tr').forEach(tr=>{const ok=tr.textContent.toLowerCase().includes(q);tr.style.display=ok?'':'none';if(ok)n++;});document.getElementById('paginationInfo').textContent=`${n} résultat(s)`;}
+function toggleMenu(e,btn){e.stopPropagation();const m=btn.nextElementSibling;document.querySelectorAll('.row-menu.is-open').forEach(x=>{if(x!==m)x.classList.remove('is-open');});m.classList.toggle('is-open');}
+document.addEventListener('click',()=>document.querySelectorAll('.row-menu.is-open').forEach(m=>m.classList.remove('is-open')));
+function openModal(){document.getElementById('modalTitle').textContent='Ajouter une entrée';['f_id','f_qte','f_pid','f_fid','f_oid','f_sid'].forEach(id=>document.getElementById(id).value='');document.getElementById('f_date').value=new Date().toISOString().split('T')[0];document.getElementById('modalOverlay').classList.add('is-open');}
+function editRow(i){const r=ROWS[i];if(!r)return;document.getElementById('modalTitle').textContent='Modifier l\'entrée';document.getElementById('f_id').value=r.id;document.getElementById('f_date').value=r.date;document.getElementById('f_qte').value=r.qte;document.getElementById('f_pid').value=r.pid;document.getElementById('f_fid').value=r.fid;document.getElementById('f_oid').value=r.oid;document.getElementById('f_sid').value=r.sid;document.getElementById('modalOverlay').classList.add('is-open');}
+function closeModal(){document.getElementById('modalOverlay').classList.remove('is-open');}
+function closeConfirm(){document.getElementById('confirmOverlay').classList.remove('is-open');}
+function closeModalIfBg(e){if(e.target.classList.contains('modal-overlay')){closeModal();closeConfirm();}}
+async function save(){
+  const id=document.getElementById('f_id').value,date=document.getElementById('f_date').value,qte=document.getElementById('f_qte').value,pid=document.getElementById('f_pid').value,fid=document.getElementById('f_fid').value,oid=document.getElementById('f_oid').value,sid=document.getElementById('f_sid').value;
+  if(!date||!qte||!pid||!fid||!oid||!sid){showToast('Tous les champs sont requis.','error');return;}
+  const body=new URLSearchParams({dateEntree:date,qteEntree:qte,produitId:pid,fournisseurId:fid,originId:oid,stockId:sid});if(id)body.append('id',id);
+  const r=await fetch(id?'/Entrees/Update':'/Entrees/Create',{method:'POST',body});const d=await r.json();
+  if(d.success){showToast(d.message,'success');closeModal();setTimeout(()=>location.reload(),700);}else showToast(d.message,'error');
+}
+function confirmDelete(id){deleteId=id;document.getElementById('confirmOverlay').classList.add('is-open');}
+async function doDelete(){const r=await fetch('/Entrees/Delete',{method:'POST',body:new URLSearchParams({id:deleteId})});const d=await r.json();closeConfirm();if(d.success){showToast(d.message,'success');setTimeout(()=>location.reload(),700);}else showToast(d.message,'error');}
+function showToast(msg,type){const t=document.createElement('div');t.className=`toast ${type}`;t.textContent=msg;document.getElementById('toastWrap').appendChild(t);setTimeout(()=>t.remove(),3500);}
+if(ROWS.length>0){updateDetail(ROWS[0]);document.getElementById('paginationInfo').textContent=`${ROWS.length} entrée(s)`;}
 </script>
+</body></html>
 
-</body>
-</html>
+
+
+

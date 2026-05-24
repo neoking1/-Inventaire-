@@ -1,5 +1,12 @@
 ﻿@{
     Layout = null;
+    string vNom = ViewBag.Nom as string ?? "";
+    string vPrenom = ViewBag.Prenom as string ?? "";
+    string vNTel = ViewBag.NTel as string ?? "";
+    string vCin = ViewBag.Cin as string ?? "";
+    string vEmail = ViewBag.Email as string ?? "";
+    string vLocalite = ViewBag.Localite as string ?? "";
+    string vLogin = ViewBag.Login as string ?? "";
 }
 <!DOCTYPE html>
 <html lang="en">
@@ -30,43 +37,48 @@
 
             <header class="auth-header">
                 <h1>Create Account</h1>
-                <p>Register a new user linked to personne and localite.</p>
+                <p>Register a new user linked to personne and localit&eacute;.</p>
             </header>
 
-            <form class="auth-form auth-form-grid" action="login.html" method="get">
+            @if (ViewBag.Error != null)
+            {
+                <p class="auth-alert auth-alert-error">@ViewBag.Error</p>
+            }
+
+            <form class="auth-form auth-form-grid" action="/Auth/Register" method="post">
                 <label class="input-group">
                     <span>Nom</span>
-                    <input type="text" name="nom" placeholder="Last name" required />
+                    <input type="text" name="nom" placeholder="Last name" value="@vNom" required />
                 </label>
 
                 <label class="input-group">
-                    <span>Prenom</span>
-                    <input type="text" name="prenom" placeholder="First name" required />
+                    <span>Pr&eacute;nom</span>
+                    <input type="text" name="prenom" placeholder="First name" value="@vPrenom" required />
                 </label>
 
                 <label class="input-group">
                     <span>n_tel</span>
-                    <input type="tel" name="n_tel" placeholder="+212 ..." required />
+                    <input type="tel" name="n_tel" placeholder="+212 ..." value="@vNTel" required />
                 </label>
 
                 <label class="input-group">
                     <span>CIN</span>
-                    <input type="text" name="cin" placeholder="CIN value" required />
+                    <input type="text" name="cin" placeholder="CIN value" value="@vCin" required />
                 </label>
 
                 <label class="input-group">
                     <span>Email</span>
-                    <input type="email" name="email" placeholder="name@example.com" required />
+                    <input type="email" name="email" placeholder="name@example.com" value="@vEmail" required />
                 </label>
 
                 <label class="input-group">
-                    <span>Localite</span>
-                    <input type="text" name="localite" placeholder="Localite id or title" required />
+                    <span>Localit&eacute;</span>
+                    <input type="text" name="localite" placeholder="Localit&eacute; id or title" value="@vLocalite" required />
                 </label>
 
                 <label class="input-group">
                     <span>Login</span>
-                    <input type="text" name="login" placeholder="Choose a login" required />
+                    <input type="text" name="login" placeholder="Choose a login" value="@vLogin" required />
                 </label>
 
                 <label class="input-group">
@@ -94,9 +106,9 @@
                 This register form mirrors your schema naming so your frontend labels stay aligned with tables and columns.
             </p>
             <ul>
-                <li>Person details: nom, prenom, n_tel, cin</li>
+                <li>Person details: nom, pr&eacute;nom, n_tel, cin</li>
                 <li>User account fields: login, mdp, type</li>
-                <li>Location context: localite relation</li>
+                <li>Location context: localit&eacute; relation</li>
             </ul>
         </aside>
     </main>

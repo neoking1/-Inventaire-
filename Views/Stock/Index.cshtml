@@ -1,61 +1,67 @@
-@{
-    Layout = null;
-}
+﻿@model System.Data.DataTable
+@{ Layout = null; }
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>StockManager - Stock</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="~/css/styles.css" />
-  </head>
-  <body>
-    <div class="app-layout">@await Html.PartialAsync("_Sidebar")<div class="main-content">
-    @await Html.PartialAsync("_Topbar", "Stock")
-    <main class="page-content"><section class="page-shell"><div class="page-actions"><button class="action-button primary"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14" /></svg><span>Mettre à jour stock</span></button><button class="action-button secondary"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12M8 11l4 4 4-4M5 20h14" /></svg><span>Exporter</span></button></div><section class="stats-grid"><article class="stat-card"><p>Stock total</p><strong>8 756</strong><small>Unités</small></article><article class="stat-card"><p>Unités disponibles</p><strong>7 540</strong><small>Disponibles</small></article><article class="stat-card"><p>Stock faible</p><strong>27</strong><small>Alertes</small></article><article class="stat-card"><p>Localités</p><strong>5</strong><small>Emplacements</small></article></section><section class="entity-grid"><div class="entity-left"><section class="filter-bar"><label class="search-input"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 4a7 7 0 1 0 4.9 12l4.1 4.1 1.4-1.4-4.1-4.1A7 7 0 0 0 11 4z" /></svg><input type="text" placeholder="Rechercher produit, référence ou localité..." /></label><label><span>Catégorie</span><select><option>Toutes</option><option>Mobilier</option><option>Tables</option><option>Rangement</option><option>Canapés</option></select></label><label><span>Localité</span><select><option>Toutes</option><option>Entrepôt Central</option><option>Dépôt Nord</option><option>Dépôt Sud</option><option>Showroom Rabat</option><option>Showroom Casablanca</option></select></label><label><span>Statut de stock</span><select><option>Tous</option><option>En stock</option><option>Faible</option><option>Critique</option></select></label><label><span>Origine</span><select><option>Toutes</option><option>Maroc</option><option>France</option><option>Allemagne</option><option>Italie</option></select></label><button class="action-button secondary"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4v6h6M20 20v-6h-6M20 10a8 8 0 0 0-14-4M4 14a8 8 0 0 0 14 4" /></svg><span>Réinitialiser</span></button></section><section class="card"><div class="table-wrapper"><table class="data-table"><thead><tr><th>ID Stock</th><th>Produit</th><th>Catégorie</th><th>Quantité qte_stock</th><th>Localité</th><th>Origine</th><th>Statut</th><th>Dernière mise à jour</th><th>Actions</th></tr></thead><tbody><tr data-select-row data-page="stock" data-index="0" data-row-id="STK-001" class="selected"><td>STK-001</td><td>Chaise de bureau Ergonomique</td><td>Mobilier</td><td>120</td><td>Entrepôt Central</td><td>France</td><td><span class="status-badge is-success">En stock</span></td><td>18/05/2026 10:32</td><td><button class="row-action">⋮</button></td></tr><tr data-select-row data-page="stock" data-index="1" data-row-id="STK-002" class=""><td>STK-002</td><td>Bureau Direction 160x80</td><td>Tables</td><td>35</td><td>Dépôt Nord</td><td>Maroc</td><td><span class="status-badge is-warning">Faible</span></td><td>18/05/2026 09:12</td><td><button class="row-action">⋮</button></td></tr><tr data-select-row data-page="stock" data-index="2" data-row-id="STK-003" class=""><td>STK-003</td><td>Étagère métallique 5 niveaux</td><td>Rangement</td><td>7</td><td>Dépôt Sud</td><td>Allemagne</td><td><span class="status-badge is-danger">Critique</span></td><td>17/05/2026 18:08</td><td><button class="row-action">⋮</button></td></tr><tr data-select-row data-page="stock" data-index="3" data-row-id="STK-004" class=""><td>STK-004</td><td>Bibliothèque étagère</td><td>Rangement</td><td>9</td><td>Showroom Rabat</td><td>Italie</td><td><span class="status-badge is-danger">Critique</span></td><td>17/05/2026 16:44</td><td><button class="row-action">⋮</button></td></tr><tr data-select-row data-page="stock" data-index="4" data-row-id="STK-005" class=""><td>STK-005</td><td>Canapé 3 places tissu</td><td>Canapés</td><td>18</td><td>Showroom Casablanca</td><td>Maroc</td><td><span class="status-badge is-warning">Faible</span></td><td>17/05/2026 14:27</td><td><button class="row-action">⋮</button></td></tr></tbody></table></div>
-    <div class="pagination-row">
-      <p>Affichage de 1 à 5 sur 156 stocks</p>
-      <div class="pagination-controls">
-        <button>«</button><button>‹</button><button class="active">1</button><button>2</button><button>3</button><button>4</button><button>5</button><span>…</span><button>16</button><button>›</button><button>»</button>
-      </div>
-    </div>
-    </section></div><aside class="detail-panel"><h3>Détails stock</h3><ul><li><span>ID Stock</span><strong>STK-001</strong></li><li><span>Produit</span><strong>Chaise de bureau Ergonomique</strong></li><li><span>Catégorie</span><strong>Mobilier</strong></li><li><span>Quantité</span><strong>120</strong></li><li><span>Localité</span><strong>Entrepôt Central</strong></li><li><span>Origine</span><strong>France</strong></li><li><span>Statut</span><strong>En stock</strong></li><li><span>Dernière MAJ</span><strong>18/05/2026 10:32</strong></li></ul><button class="action-button primary full"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17.2V21h3.8l11-11-3.8-3.8-11 11zM14.8 6.2l3.8 3.8" /></svg><span>Voir le stock</span></button></aside></section></section></main></div></div>
-    
-  
+<head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>StockManager - Stock</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="~/css/styles.css" /></head>
+<body><div class="app-layout">
+@await Html.PartialAsync("_Sidebar")
+<div class="main-content">@await Html.PartialAsync("_Topbar", "Stock")<main class="page-content"><section class="page-shell page-shell-entity">
+
+<section class="stats-grid">
+  <article class="stat-card"><p>Stock total</p><strong>@(ViewBag.TotalUnites??0)</strong><small>Unités</small></article>
+  <article class="stat-card"><p>Références</p><strong>@(ViewBag.TotalStock??0)</strong><small>Articles</small></article>
+  <article class="stat-card"><p>Alertes stock faible</p><strong>@(ViewBag.AlertesStock??0)</strong><small>Alertes</small></article>
+</section>
+
+<section class="entity-grid"><div class="entity-left">
+<section class="filter-bar">
+  <label class="search-input"><svg viewBox="0 0 24 24"><path d="M11 4a7 7 0 1 0 4.9 12l4.1 4.1 1.4-1.4-4.1-4.1A7 7 0 0 0 11 4z"/></svg><input type="text" id="searchInput" placeholder="Rechercher produit ou localité..." oninput="filterTable()" /></label>
+  <label><span>Statut stock</span>
+    <select id="filterStatus" onchange="filterByStatus()">
+      <option value="">Tous</option><option value="ok">En stock</option><option value="low">Faible (&lt;20)</option><option value="crit">Critique (&lt;5)</option>
+    </select>
+  </label>
+  <button class="action-button secondary" onclick="resetFilters()"><svg viewBox="0 0 24 24"><path d="M4 4v6h6M20 20v-6h-6M20 10a8 8 0 0 0-14-4M4 14a8 8 0 0 0 14 4"/></svg><span>Réinitialiser</span></button>
+</section>
+<section class="card"><div class="table-wrapper"><table class="data-table" id="mainTable">
+  <thead><tr><th>ID Stock</th><th>Produit</th><th>Catégorie</th><th>Qté Stock</th><th>Localité</th><th>Statut</th></tr></thead>
+  <tbody>
+    @if(Model!=null){int i=0;foreach(System.Data.DataRow row in Model.Rows){
+    int qte = row["qte_stock"]==DBNull.Value?0:Convert.ToInt32(row["qte_stock"]);
+    string badge = qte<5?"is-danger":qte<20?"is-warning":"is-success";
+    string statut = qte<5?"Critique":qte<20?"Faible":"En stock";
+    string statusKey = qte<5?"crit":qte<20?"low":"ok";
+    <tr data-index="@i" data-status="@statusKey" class="@(i==0?"selected":"")" onclick="selectRow(this,@i)">
+      <td>@row["stock_id"]</td><td>@row["label"]</td><td>@row["nom_categorie"]</td><td>@qte</td><td>@row["localite"]</td>
+      <td><span class="status-badge @badge">@statut</span></td>
+    </tr>
+    i++;}}
+  </tbody>
+</table></div><div class="pagination-row"><p id="paginationInfo"></p></div></section>
+</div>
+<aside class="detail-panel"><h3>Détails stock</h3><ul id="detailList"></ul></aside>
+</section>
+</section></main></div></div>
+<div class="toast-wrap" id="toastWrap"></div>
+
 <script>
-  (function() {
-    const PAGE_ROWS = [{"id": "STK-001", "qte_stock": 120, "produit": "Chaise de bureau Ergonomique", "categorie": "Mobilier", "localite": "Entrep\u00f4t Central", "origine": "France", "statut": "En stock", "updated_at": "18/05/2026 10:32"}, {"id": "STK-002", "qte_stock": 35, "produit": "Bureau Direction 160x80", "categorie": "Tables", "localite": "D\u00e9p\u00f4t Nord", "origine": "Maroc", "statut": "Faible", "updated_at": "18/05/2026 09:12"}, {"id": "STK-003", "qte_stock": 7, "produit": "\u00c9tag\u00e8re m\u00e9tallique 5 niveaux", "categorie": "Rangement", "localite": "D\u00e9p\u00f4t Sud", "origine": "Allemagne", "statut": "Critique", "updated_at": "17/05/2026 18:08"}, {"id": "STK-004", "qte_stock": 9, "produit": "Biblioth\u00e8que \u00e9tag\u00e8re", "categorie": "Rangement", "localite": "Showroom Rabat", "origine": "Italie", "statut": "Critique", "updated_at": "17/05/2026 16:44"}, {"id": "STK-005", "qte_stock": 18, "produit": "Canap\u00e9 3 places tissu", "categorie": "Canap\u00e9s", "localite": "Showroom Casablanca", "origine": "Maroc", "statut": "Faible", "updated_at": "17/05/2026 14:27"}];
-    const DETAIL_FIELDS = [{"label": "ID Stock", "key": "id"}, {"label": "Produit", "key": "produit"}, {"label": "Cat\u00e9gorie", "key": "categorie"}, {"label": "Quantit\u00e9", "key": "qte_stock"}, {"label": "Localit\u00e9", "key": "localite"}, {"label": "Origine", "key": "origine"}, {"label": "Statut", "key": "statut"}, {"label": "Derni\u00e8re MAJ", "key": "updated_at"}];
-
-    const rows = document.querySelectorAll("[data-select-row]");
-    const detailPanel = document.querySelector(".detail-panel");
-
-    function updateDetail(index) {
-      const record = PAGE_ROWS[index];
-      if (!record) return;
-      
-      rows.forEach(r => r.classList.remove("selected"));
-      rows[index].classList.add("selected");
-
-      const list = detailPanel.querySelector("ul");
-      list.innerHTML = DETAIL_FIELDS.map(f => `<li><span>${f.label}</span><strong>${record[f.key] || "-"}</strong></li>`).join("");
-      
-      const descDiv = detailPanel.querySelector(".detail-description p");
-      if (descDiv) {
-        descDiv.textContent = record.description || record.remarque || "";
-      }
-    }
-
-    rows.forEach((row, i) => {
-      row.addEventListener("click", () => updateDetail(i));
-    });
-  })();
+const ROWS=@Html.Raw(System.Text.Json.JsonSerializer.Serialize((Model?.Rows.Cast<System.Data.DataRow>() ?? System.Linq.Enumerable.Empty<System.Data.DataRow>()).Select(r=>new{
+  sid=r["stock_id"],label=r["label"]?.ToString(),cat=r["nom_categorie"]?.ToString(),
+  qte=r["qte_stock"]==DBNull.Value?0:Convert.ToInt32(r["qte_stock"]),loc=r["localite"]?.ToString()
+}).ToList()));
+let selectedIndex=0;
+function selectRow(el,i){document.querySelectorAll('#mainTable tbody tr').forEach(r=>r.classList.remove('selected'));el.classList.add('selected');selectedIndex=i;updateDetail(ROWS[i]);}
+function updateDetail(r){if(!r)return;const statut=r.qte<5?'Critique':r.qte<20?'Faible':'En stock';document.getElementById('detailList').innerHTML=`<li><span>ID Stock</span><strong>${r.sid}</strong></li><li><span>Produit</span><strong>${r.label||'-'}</strong></li><li><span>Catégorie</span><strong>${r.cat||'-'}</strong></li><li><span>Quantité</span><strong>${r.qte}</strong></li><li><span>Localité</span><strong>${r.loc||'-'}</strong></li><li><span>Statut</span><strong>${statut}</strong></li>`;}
+function filterTable(reset){if(reset)document.getElementById('searchInput').value='';const q=document.getElementById('searchInput').value.toLowerCase();let n=0;document.querySelectorAll('#mainTable tbody tr').forEach(tr=>{const ok=tr.textContent.toLowerCase().includes(q);tr.style.display=ok?'':'none';if(ok)n++;});document.getElementById('paginationInfo').textContent=`${n} résultat(s)`;}
+function filterByStatus(){const s=document.getElementById('filterStatus').value;let n=0;document.querySelectorAll('#mainTable tbody tr').forEach(tr=>{const ok=!s||tr.dataset.status===s;tr.style.display=ok?'':'none';if(ok)n++;});document.getElementById('paginationInfo').textContent=`${n} résultat(s)`;}
+function resetFilters(){document.getElementById('searchInput').value='';document.getElementById('filterStatus').value='';filterTable();}
+if(ROWS.length>0){updateDetail(ROWS[0]);document.getElementById('paginationInfo').textContent=`${ROWS.length} article(s)`;}
 </script>
+</body></html>
 
-  </body>
-</html>
 
 

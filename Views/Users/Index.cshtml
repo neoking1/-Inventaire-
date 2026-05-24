@@ -1,61 +1,124 @@
-@{
-    Layout = null;
-}
+﻿@model System.Data.DataTable
+@{ Layout = null; }
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>StockManager - Users</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="~/css/styles.css" />
-  </head>
-  <body>
-    <div class="app-layout">@await Html.PartialAsync("_Sidebar")<div class="main-content">
-    @await Html.PartialAsync("_Topbar", "Utilisateurs")
-    <main class="page-content"><section class="page-shell"><div class="page-actions"><button class="action-button primary"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14" /></svg><span>Ajouter un utilisateur</span></button></div><section class="stats-grid"><article class="stat-card"><p>Total utilisateurs</p><strong>6</strong><small>Comptes</small></article><article class="stat-card"><p>Administrateurs</p><strong>1</strong><small>Admin</small></article><article class="stat-card"><p>Opérateurs</p><strong>3</strong><small>Rôles</small></article><article class="stat-card"><p>Derniers accès</p><strong>6</strong><small>Actifs</small></article></section><section class="entity-grid"><div class="entity-left"><section class="filter-bar"><label class="search-input"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 4a7 7 0 1 0 4.9 12l4.1 4.1 1.4-1.4-4.1-4.1A7 7 0 0 0 11 4z" /></svg><input type="text" placeholder="Rechercher un utilisateur..." /></label><label><span>Type</span><select><option>Tous</option><option>Administrateur</option><option>Opérateur</option><option>Magasinier</option></select></label><label><span>Statut</span><select><option>Tous</option><option>Actif</option><option>Inactif</option></select></label><label><span>Dernier accès</span><select><option>Aujourd&#039;hui</option><option>Hier</option><option>7 derniers jours</option></select></label><button class="action-button secondary"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4v6h6M20 20v-6h-6M20 10a8 8 0 0 0-14-4M4 14a8 8 0 0 0 14 4" /></svg><span>Réinitialiser</span></button></section><section class="card"><div class="table-wrapper"><table class="data-table"><thead><tr><th>ID</th><th>Login</th><th>Mot de passe</th><th>Type</th><th>Personne ID</th><th>Personne</th><th>Dernier accès</th><th>Actions</th></tr></thead><tbody><tr data-select-row data-page="users" data-index="0" data-row-id="USR-001" class="selected"><td>USR-001</td><td>admin</td><td>••••••••</td><td>Administrateur</td><td>PRS-001</td><td>Jean Dupont</td><td>Aujourd&#039;hui 10:42</td><td><button class="row-action">⋮</button></td></tr><tr data-select-row data-page="users" data-index="1" data-row-id="USR-002" class=""><td>USR-002</td><td>operateur1</td><td>••••••••</td><td>Opérateur</td><td>PRS-002</td><td>Claire Martin</td><td>Aujourd&#039;hui 09:21</td><td><button class="row-action">⋮</button></td></tr><tr data-select-row data-page="users" data-index="2" data-row-id="USR-003" class=""><td>USR-003</td><td>magasinier</td><td>••••••••</td><td>Magasinier</td><td>PRS-003</td><td>Paul Bernard</td><td>Hier 17:03</td><td><button class="row-action">⋮</button></td></tr><tr data-select-row data-page="users" data-index="3" data-row-id="USR-004" class=""><td>USR-004</td><td>achat</td><td>••••••••</td><td>Opérateur</td><td>PRS-004</td><td>Sophie Lefèvre</td><td>Hier 15:50</td><td><button class="row-action">⋮</button></td></tr><tr data-select-row data-page="users" data-index="4" data-row-id="USR-005" class=""><td>USR-005</td><td>vente</td><td>••••••••</td><td>Opérateur</td><td>PRS-005</td><td>Youssef El Amrani</td><td>Hier 14:04</td><td><button class="row-action">⋮</button></td></tr><tr data-select-row data-page="users" data-index="5" data-row-id="USR-006" class=""><td>USR-006</td><td>stock</td><td>••••••••</td><td>Magasinier</td><td>PRS-006</td><td>Salma Benali</td><td>12/05/2026 11:13</td><td><button class="row-action">⋮</button></td></tr></tbody></table></div>
-    <div class="pagination-row">
-      <p>Affichage de 1 à 6 sur 6 utilisateurs</p>
-      <div class="pagination-controls">
-        <button>«</button><button>‹</button><button class="active">1</button><button>2</button><button>3</button><button>4</button><button>5</button><span>…</span><button>16</button><button>›</button><button>»</button>
-      </div>
+<head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>StockManager - Utilisateurs</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="~/css/styles.css" /></head>
+<body><div class="app-layout">
+@await Html.PartialAsync("_Sidebar")
+<div class="main-content">@await Html.PartialAsync("_Topbar", "Utilisateurs")<main class="page-content"><section class="page-shell page-shell-entity">
+
+<div class="page-actions">
+  <button class="action-button primary" onclick="openModal()"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg><span>Ajouter utilisateur</span></button>
+</div>
+<section class="stats-grid"><article class="stat-card"><p>Total Utilisateurs</p><strong>@(ViewBag.Total??0)</strong><small>Comptes</small></article></section>
+
+<section class="entity-grid"><div class="entity-left">
+<section class="filter-bar">
+  <label class="search-input"><svg viewBox="0 0 24 24"><path d="M11 4a7 7 0 1 0 4.9 12l4.1 4.1 1.4-1.4-4.1-4.1A7 7 0 0 0 11 4z"/></svg><input type="text" id="searchInput" placeholder="Rechercher..." oninput="filterTable()" /></label>
+  <label><span>Rôle</span>
+    <select onchange="filterByRole(this.value)">
+      <option value="">Tous</option><option>admin</option><option>manager</option><option>employee</option><option>viewer</option>
+    </select>
+  </label>
+  <button class="action-button secondary" onclick="resetFilters()"><svg viewBox="0 0 24 24"><path d="M4 4v6h6M20 20v-6h-6M20 10a8 8 0 0 0-14-4M4 14a8 8 0 0 0 14 4"/></svg><span>Réinitialiser</span></button>
+</section>
+<section class="card"><div class="table-wrapper"><table class="data-table has-actions" id="mainTable">
+  <thead><tr><th>ID</th><th>Login</th><th>Rôle</th><th>Personne liée</th><th>Actions</th></tr></thead>
+  <tbody>
+    @if(Model!=null){int i=0;foreach(System.Data.DataRow row in Model.Rows){
+    string role = row["type"]?.ToString() ?? "";
+    string badge = role=="admin"?"is-danger":role=="manager"?"is-warning":"is-success";
+    <tr data-index="@i" data-role="@role" class="@(i==0?"selected":"")" onclick="selectRow(this,@i)">
+      <td>@row["id"]</td><td>@row["login"]</td>
+      <td><span class="status-badge @badge">@role</span></td>
+      <td>@(row["nom"]?.ToString() ?? "-") @row["prenom"]</td>
+      <td><div class="row-menu-wrap"><button class="row-action" onclick="toggleMenu(event,this)">⋮</button><div class="row-menu">
+        <button onclick="editRow(@i)"><svg viewBox="0 0 24 24"><path d="M3 17.2V21h3.8l11-11-3.8-3.8-11 11z"/></svg>Modifier</button>
+        <button class="is-danger" onclick="confirmDelete(@row["id"])"><svg viewBox="0 0 24 24"><path d="M3 6h18M8 6V4h8v2M19 6l-1 14H6L5 6"/></svg>Supprimer</button>
+      </div></div></td>
+    </tr>
+    i++;}}
+  </tbody>
+</table></div><div class="pagination-row"><p id="paginationInfo"></p></div></section>
+</div>
+<aside class="detail-panel"><h3>Détails utilisateur</h3><ul id="detailList"></ul>
+  <button class="action-button primary full" onclick="editRow(selectedIndex)"><svg viewBox="0 0 24 24"><path d="M3 17.2V21h3.8l11-11-3.8-3.8-11 11z"/></svg><span>Modifier</span></button>
+</aside>
+</section>
+</section></main></div></div>
+
+<div class="modal-overlay" id="modalOverlay" onclick="closeModalIfBg(event)"><div class="modal-box">
+  <div class="modal-header"><h3 id="modalTitle">Ajouter un utilisateur</h3><button class="modal-close" onclick="closeModal()">✕</button></div>
+  <div class="form-row">
+    <div class="form-group"><label>Login</label><input type="text" id="f_login" /></div>
+    <div class="form-group"><label>Mot de passe <span id="mdpHint" style="font-weight:400;text-transform:none">(laisser vide = pas de changement)</span></label><input type="password" id="f_mdp" /></div>
+  </div>
+  <div class="form-row">
+    <div class="form-group"><label>Rôle</label>
+      <select id="f_type">
+        <option value="viewer">viewer</option><option value="employee">employee</option>
+        <option value="manager">manager</option><option value="admin">admin</option>
+      </select>
     </div>
-    </section></div><aside class="detail-panel"><h3>Détails utilisateur</h3><ul><li><span>ID utilisateur</span><strong>USR-001</strong></li><li><span>Login</span><strong>admin</strong></li><li><span>Mot de passe</span><strong>••••••••</strong></li><li><span>Type</span><strong>Administrateur</strong></li><li><span>Personne ID</span><strong>PRS-001</strong></li><li><span>Nom complet</span><strong>Jean Dupont</strong></li><li><span>Email</span><strong>jean.dupont@stockmanager.ma</strong></li><li><span>Téléphone</span><strong>+212 6 01 02 03 04</strong></li><li><span>Dernier accès</span><strong>Aujourd&#039;hui 10:42</strong></li><li><span>Statut du compte</span><strong>Actif</strong></li></ul><button class="action-button primary full"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17.2V21h3.8l11-11-3.8-3.8-11 11zM14.8 6.2l3.8 3.8" /></svg><span>Modifier le profil</span></button></aside></section></section></main></div></div>
-    
-  
+    <div class="form-group"><label>Personne liée</label>
+      <select id="f_pid">
+        <option value="">-- Aucune --</option>
+        @if(ViewBag.Personnes!=null){foreach(System.Data.DataRow p in ((System.Data.DataTable)ViewBag.Personnes).Rows){
+          <option value="@p["personne_id"]">@p["nom"] @p["prenom"]</option>
+        }}
+      </select>
+    </div>
+  </div>
+  <input type="hidden" id="f_id" />
+  <div class="modal-footer"><button class="action-button secondary" onclick="closeModal()">Annuler</button><button class="action-button primary" onclick="save()">Enregistrer</button></div>
+</div></div>
+
+<div class="modal-overlay" id="confirmOverlay" onclick="closeModalIfBg(event)"><div class="modal-box confirm-dialog">
+  <div class="confirm-icon"><svg viewBox="0 0 24 24"><path d="M3 6h18M8 6V4h8v2M19 6l-1 14H6L5 6"/></svg></div>
+  <h3>Supprimer cet utilisateur ?</h3><p>Cette action est irréversible.</p>
+  <div class="modal-footer"><button class="action-button secondary" onclick="closeConfirm()">Annuler</button><button class="action-button primary" style="background:#ef4444" onclick="doDelete()">Supprimer</button></div>
+</div></div>
+<div class="toast-wrap" id="toastWrap"></div>
+
 <script>
-  (function() {
-    const PAGE_ROWS = [{"id": "USR-001", "login": "admin", "mdp": "\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022", "type": "Administrateur", "personne_id": "PRS-001", "personne": "Jean Dupont", "dernier_acces": "Aujourd'hui 10:42", "statut": "Actif", "email": "jean.dupont@stockmanager.ma", "tel": "+212 6 01 02 03 04"}, {"id": "USR-002", "login": "operateur1", "mdp": "\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022", "type": "Op\u00e9rateur", "personne_id": "PRS-002", "personne": "Claire Martin", "dernier_acces": "Aujourd'hui 09:21", "statut": "Actif", "email": "claire.martin@stockmanager.ma", "tel": "+212 6 11 22 33 44"}, {"id": "USR-003", "login": "magasinier", "mdp": "\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022", "type": "Magasinier", "personne_id": "PRS-003", "personne": "Paul Bernard", "dernier_acces": "Hier 17:03", "statut": "Actif", "email": "paul.bernard@stockmanager.ma", "tel": "+212 6 55 44 33 22"}, {"id": "USR-004", "login": "achat", "mdp": "\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022", "type": "Op\u00e9rateur", "personne_id": "PRS-004", "personne": "Sophie Lef\u00e8vre", "dernier_acces": "Hier 15:50", "statut": "Inactif", "email": "sophie.lefevre@stockmanager.ma", "tel": "+212 6 74 55 11 82"}, {"id": "USR-005", "login": "vente", "mdp": "\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022", "type": "Op\u00e9rateur", "personne_id": "PRS-005", "personne": "Youssef El Amrani", "dernier_acces": "Hier 14:04", "statut": "Actif", "email": "youssef.elamrani@stockmanager.ma", "tel": "+212 6 64 88 11 03"}, {"id": "USR-006", "login": "stock", "mdp": "\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022", "type": "Magasinier", "personne_id": "PRS-006", "personne": "Salma Benali", "dernier_acces": "12/05/2026 11:13", "statut": "Actif", "email": "salma.benali@stockmanager.ma", "tel": "+212 6 62 90 17 30"}];
-    const DETAIL_FIELDS = [{"label": "ID utilisateur", "key": "id"}, {"label": "Login", "key": "login"}, {"label": "Mot de passe", "key": "mdp"}, {"label": "Type", "key": "type"}, {"label": "Personne ID", "key": "personne_id"}, {"label": "Nom complet", "key": "personne"}, {"label": "Email", "key": "email"}, {"label": "T\u00e9l\u00e9phone", "key": "tel"}, {"label": "Dernier acc\u00e8s", "key": "dernier_acces"}, {"label": "Statut du compte", "key": "statut"}];
-
-    const rows = document.querySelectorAll("[data-select-row]");
-    const detailPanel = document.querySelector(".detail-panel");
-
-    function updateDetail(index) {
-      const record = PAGE_ROWS[index];
-      if (!record) return;
-      
-      rows.forEach(r => r.classList.remove("selected"));
-      rows[index].classList.add("selected");
-
-      const list = detailPanel.querySelector("ul");
-      list.innerHTML = DETAIL_FIELDS.map(f => `<li><span>${f.label}</span><strong>${record[f.key] || "-"}</strong></li>`).join("");
-      
-      const descDiv = detailPanel.querySelector(".detail-description p");
-      if (descDiv) {
-        descDiv.textContent = record.description || record.remarque || "";
-      }
-    }
-
-    rows.forEach((row, i) => {
-      row.addEventListener("click", () => updateDetail(i));
-    });
-  })();
+const ROWS=@Html.Raw(System.Text.Json.JsonSerializer.Serialize((Model?.Rows.Cast<System.Data.DataRow>() ?? System.Linq.Enumerable.Empty<System.Data.DataRow>()).Select(r=>new{
+  id=r["id"],login=r["login"]?.ToString(),type=r["type"]?.ToString(),
+  pid=r["personne_id"]==DBNull.Value?0:r["personne_id"],
+  nom=r["nom"]?.ToString(),prenom=r["prenom"]?.ToString(),ntel=r["n_tel"]?.ToString()
+}).ToList()));
+let selectedIndex=0,deleteId=null;
+const FIELDS=[['ID','id'],['Login','login'],['Rôle','type'],['Nom','nom'],['Prénom','prenom'],['Téléphone','ntel']];
+function selectRow(el,i){document.querySelectorAll('#mainTable tbody tr').forEach(r=>r.classList.remove('selected'));el.classList.add('selected');selectedIndex=i;updateDetail(ROWS[i]);}
+function updateDetail(r){if(!r)return;document.getElementById('detailList').innerHTML=FIELDS.map(([l,k])=>`<li><span>${l}</span><strong>${r[k]||'-'}</strong></li>`).join('');}
+function filterTable(reset){if(reset)document.getElementById('searchInput').value='';const q=document.getElementById('searchInput').value.toLowerCase();let n=0;document.querySelectorAll('#mainTable tbody tr').forEach(tr=>{const ok=tr.textContent.toLowerCase().includes(q);tr.style.display=ok?'':'none';if(ok)n++;});document.getElementById('paginationInfo').textContent=`${n} résultat(s)`;}
+function filterByRole(role){let n=0;document.querySelectorAll('#mainTable tbody tr').forEach(tr=>{const ok=!role||tr.dataset.role===role;tr.style.display=ok?'':'none';if(ok)n++;});document.getElementById('paginationInfo').textContent=`${n} résultat(s)`;}
+function resetFilters(){document.getElementById('searchInput').value='';document.querySelector('select[onchange]').value='';filterTable();}
+function toggleMenu(e,btn){e.stopPropagation();const m=btn.nextElementSibling;document.querySelectorAll('.row-menu.is-open').forEach(x=>{if(x!==m)x.classList.remove('is-open');});m.classList.toggle('is-open');}
+document.addEventListener('click',()=>document.querySelectorAll('.row-menu.is-open').forEach(m=>m.classList.remove('is-open')));
+function openModal(){document.getElementById('modalTitle').textContent='Ajouter un utilisateur';document.getElementById('f_id').value='';document.getElementById('f_login').value='';document.getElementById('f_mdp').value='';document.getElementById('f_type').value='viewer';document.getElementById('f_pid').value='';document.getElementById('mdpHint').style.display='none';document.getElementById('modalOverlay').classList.add('is-open');}
+function editRow(i){const r=ROWS[i];if(!r)return;document.getElementById('modalTitle').textContent='Modifier l\'utilisateur';document.getElementById('f_id').value=r.id;document.getElementById('f_login').value=r.login||'';document.getElementById('f_mdp').value='';document.getElementById('f_type').value=r.type||'viewer';document.getElementById('f_pid').value=r.pid||'';document.getElementById('mdpHint').style.display='';document.getElementById('modalOverlay').classList.add('is-open');}
+function closeModal(){document.getElementById('modalOverlay').classList.remove('is-open');}
+function closeConfirm(){document.getElementById('confirmOverlay').classList.remove('is-open');}
+function closeModalIfBg(e){if(e.target.classList.contains('modal-overlay')){closeModal();closeConfirm();}}
+async function save(){
+  const id=document.getElementById('f_id').value,login=document.getElementById('f_login').value.trim(),mdp=document.getElementById('f_mdp').value,type=document.getElementById('f_type').value,pid=document.getElementById('f_pid').value;
+  if(!login){showToast('Le login est requis.','error');return;}
+  if(!id&&!mdp){showToast('Le mot de passe est requis pour un nouveau compte.','error');return;}
+  const body=new URLSearchParams({login,mdp,type,personneId:pid});if(id)body.append('id',id);
+  const r=await fetch(id?'/Users/Update':'/Users/Create',{method:'POST',body});const d=await r.json();
+  if(d.success){showToast(d.message,'success');closeModal();setTimeout(()=>location.reload(),700);}else showToast(d.message,'error');
+}
+function confirmDelete(id){deleteId=id;document.getElementById('confirmOverlay').classList.add('is-open');}
+async function doDelete(){const r=await fetch('/Users/Delete',{method:'POST',body:new URLSearchParams({id:deleteId})});const d=await r.json();closeConfirm();if(d.success){showToast(d.message,'success');setTimeout(()=>location.reload(),700);}else showToast(d.message,'error');}
+function showToast(msg,type){const t=document.createElement('div');t.className=`toast ${type}`;t.textContent=msg;document.getElementById('toastWrap').appendChild(t);setTimeout(()=>t.remove(),3500);}
+if(ROWS.length>0){updateDetail(ROWS[0]);document.getElementById('paginationInfo').textContent=`${ROWS.length} utilisateur(s)`;}
 </script>
+</body></html>
 
-  </body>
-</html>
+
 
 
